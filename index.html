@@ -6,7 +6,6 @@
     <title>114年07月醫學教育委員會</title>
     <!-- Load Noto Sans TC font with required weights -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         /* Define a color palette using CSS variables based on the screenshot */
         :root {
@@ -25,8 +24,15 @@
             --warning-yellow: #ffc107; /* Standard yellow for warnings */
         }
 
-        body {
+        body,
+        button,
+        input,
+        select,
+        textarea {
             font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        body {
             margin: 0;
             padding: 0;
             display: flex;
@@ -1152,7 +1158,7 @@
         /* Narrative Award - Medical Humanities style */
         #narrative-award.humanities-section {
             background-color: #f8f9f9;
-            font-family: 'Noto Serif TC', 'Microsoft JhengHei', 'Noto Sans TC', serif;
+            font-family: 'Noto Sans TC', sans-serif;
         }
         #narrative-award .subtitle {
             font-size: 1.6em;
@@ -1163,7 +1169,7 @@
         }
         .award-card-container {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             gap: 20px;
             justify-content: center;
             margin-bottom: 30px;
@@ -1173,8 +1179,7 @@
             border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             padding: 20px;
-            flex: 1 1 280px;
-            max-width: 330px;
+            flex: 0 0 280px;
             text-align: center;
         }
         .award-card .medal {
@@ -1186,7 +1191,6 @@
             font-style: italic;
             font-weight: 600;
             margin-bottom: 8px;
-            color: #003262;
         }
         .award-card ul {
             list-style: none;
@@ -1196,9 +1200,6 @@
         }
         .award-card ul li {
             margin-bottom: 6px;
-        }
-        .author {
-            color: #355c53;
         }
         .honorable-section {
             margin-top: 20px;
@@ -1234,7 +1235,10 @@
         #narrative-award .award-tab.active { background-color: var(--accent-blue-main); color: #fff; }
         #narrative-award .award-content { display: none; }
         #narrative-award .award-content.active { display: block; }
-        .work-green, .work-blue, .work-red { color: #003262; }
+        .work-green { color: #2E7D32; }
+        .work-blue { color: #1565C0; }
+        .work-red  { color: #C62828; }
+        .author { color: #000000; }
         /* Footer style */
         .page-footer {
             position: absolute;
