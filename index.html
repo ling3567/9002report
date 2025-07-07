@@ -7,16 +7,16 @@
     <style>
         /* Define a color palette using CSS variables based on the screenshot */
         :root {
-            --primary-dark-text: #333333; /* Dark text for headings, main content */
-            --primary-medium-text: #666666; /* Medium text for details */
+            --primary-dark-text: #2C3E50; /* Dark text for headings, main content */
+            --primary-medium-text: #4B5E6B; /* Medium text for details */
             --bg-white: #FFFFFF; /* Main background for content blocks */
-            --bg-light-gray: #F9F9F9; /* Very light background for overall page */
-            --border-gray: #E0E0E0; /* Light gray for borders */
-            --accent-blue-main: #4285F4; /* Google Blue for strong accents, active states */
-            --accent-blue-light: #E8F0F8; /* Very light blue for backgrounds (like top bar) */
-            --accent-blue-medium: #D2E3FC; /* Slightly darker light blue for some backgrounds */
-            --group-label-bg: #FCE4CC; /* Peach/orange for group labels */
-            --group-label-text: #D84315; /* Darker orange for group label text */
+            --bg-light-gray: #F5F7FA; /* Very light background for overall page */
+            --border-gray: #D1D5DB; /* Light gray for borders */
+            --accent-blue-main: #2D5F9A; /* Professional dark blue for accents */
+            --accent-blue-light: #EBF3F9; /* Very light blue for backgrounds (like top bar) */
+            --accent-blue-medium: #C7DAE7; /* Slightly darker light blue for some backgrounds */
+            --group-label-bg: #D9E4EC; /* Soft blue background for group labels */
+            --group-label-text: #2D5F9A; /* Dark blue text for group label */
             --success-green: #28a745; /* Standard green for success */
             --danger-red: #dc3545; /* Standard red for danger */
             --warning-yellow: #ffc107; /* Standard yellow for warnings */
@@ -34,7 +34,7 @@
         #sidebar {
             width: 250px; /* Consistent sidebar width */
             flex: 0 0 250px; /* Prevent flexbox from shrinking */
-            background-color: #F2F2F2; /* 淡雅的淺灰色 */
+            background-color: var(--accent-blue-light); /* 淡雅的淺藍色 */
             padding: 20px;
             box-shadow: 2px 0 10px rgba(0,0,0,0.1); /* Soft shadow */
             overflow-y: auto;
@@ -287,8 +287,8 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Softer shadow */
         }
         .group-label {
-            background-color: var(--group-label-bg); /* Peach/orange background for label */
-            color: var(--group-label-text); /* Darker orange text */
+            background-color: var(--group-label-bg); /* Soft blue background for label */
+            color: var(--group-label-text); /* Dark blue text */
             padding: 12px 25px;
             border-radius: 25px;
             font-weight: bold;
@@ -913,14 +913,14 @@
             white-space: nowrap; /* Prevent button text from wrapping */
         }
         .action-button:hover {
-            background-color: #3a79e0; /* Darker blue on hover */
+            background-color: #244A7F; /* Darker blue on hover */
             transform: translateY(-2px);
             box-shadow: 0 5px 12px rgba(0,0,0,0.3);
         }
         /* New style for invitation box */
         .invitation-box {
-            background-color: var(--group-label-bg); /* Distinct peach tone */
-            border: 2px solid var(--group-label-text); /* Matching orange border */
+            background-color: var(--group-label-bg); /* Soft blue tone */
+            border: 2px solid var(--group-label-text); /* Matching blue border */
             border-radius: 15px;
             padding: 25px;
             margin-top: 30px;
