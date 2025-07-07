@@ -1020,6 +1020,37 @@
         .clinical-team-critical {
             background-color: #FFF3E0;
         }
+        .team-section {
+            margin-top: 15px;
+            text-align: center;
+        }
+        .team-section-title {
+            font-weight: bold;
+            color: var(--accent-blue-main);
+            margin-bottom: 8px;
+        }
+        .team-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .team-list li {
+            background-color: var(--accent-blue-light);
+            border: 1px solid var(--accent-blue-main);
+            border-radius: 20px;
+            padding: 6px 12px;
+            color: var(--primary-dark-text);
+            font-size: 0.95em;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .team-label {
+            font-weight: bold;
+            margin-right: 4px;
+        }
         /* Footer style */
         .page-footer {
             position: absolute;
@@ -1567,15 +1598,21 @@
                 <ul>
                     <li class="highlight-info"><strong>競賽日期：</strong>114年9月13日(新人組第一場) 11:55-12:40</li>
                     <li class="highlight-info"><strong>競賽地點：</strong>林口長庚醫院</li>
-                    <li><strong>參賽人員：</strong>
-                        <ul>
-                            <li>一般科：郭家妤醫師</li>
-                            <li>急診室：鄭夙妤護理師、林美婷護理師</li>
-                            <li>急診醫學部：鄭雅云專科護理師</li>
-                        </ul>
-                    </li>
-                    <li><strong>指導教師：</strong>林昱惠醫師</li>
                 </ul>
+                <div class="team-section">
+                    <div class="team-section-title">參賽人員</div>
+                    <ul class="team-list">
+                        <li><span class="team-label">一般科</span>郭家妤醫師</li>
+                        <li><span class="team-label">急診室</span>鄭夙妤護理師、林美婷護理師</li>
+                        <li><span class="team-label">急診醫學部</span>鄭雅云專科護理師</li>
+                    </ul>
+                </div>
+                <div class="team-section">
+                    <div class="team-section-title">指導教師</div>
+                    <ul class="team-list">
+                        <li>林昱惠醫師</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="clinical-team-group clinical-team-critical">
@@ -1583,15 +1620,21 @@
                 <ul>
                     <li class="highlight-info"><strong>競賽日期：</strong>114年11月15日(急重症第三場)15:35-16:45</li>
                     <li class="highlight-info"><strong>競賽地點：</strong>高雄醫學大學附設醫院</li>
-                    <li><strong>參賽人員：</strong>
-                        <ul>
-                            <li>急診醫學部：秦郁涵醫師、陳韋廷醫師</li>
-                            <li>急診室：謝捷瀠護理師、蔡欣蓉護理師</li>
-                            <li>呼吸治療科：王盈婷小組長</li>
-                        </ul>
-                    </li>
-                    <li><strong>指導教師：</strong>蔡長志主任</li>
                 </ul>
+                <div class="team-section">
+                    <div class="team-section-title">參賽人員</div>
+                    <ul class="team-list">
+                        <li><span class="team-label">急診醫學部</span>秦郁涵醫師、陳韋廷醫師</li>
+                        <li><span class="team-label">急診室</span>謝捷瀠護理師、蔡欣蓉護理師</li>
+                        <li><span class="team-label">呼吸治療科</span>王盈婷小組長</li>
+                    </ul>
+                </div>
+                <div class="team-section">
+                    <div class="team-section-title">指導教師</div>
+                    <ul class="team-list">
+                        <li>蔡長志主任</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
