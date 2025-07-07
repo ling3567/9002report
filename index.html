@@ -276,6 +276,7 @@
         }
         .evaluation-row {
             display: flex;
+            flex-direction: column; /* Put label above steps */
             align-items: center;
             margin-bottom: 40px;
             position: relative;
@@ -293,7 +294,8 @@
             font-weight: bold;
             font-size: 1.2em;
             white-space: nowrap;
-            margin-right: 30px;
+            margin-right: 0; /* Centered label, no side margin */
+            margin-bottom: 20px; /* Space below label */
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
             min-width: 140px;
             text-align: center;
@@ -303,7 +305,8 @@
             flex-grow: 1;
             justify-content: center;
             gap: 25px;
-            flex-wrap: wrap;
+            flex-wrap: nowrap; /* Keep step cards on one row */
+            overflow-x: auto; /* Allow scroll if space insufficient */
             position: relative;
             padding: 0 15px;
         }
