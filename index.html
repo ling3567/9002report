@@ -1224,6 +1224,15 @@
             font-weight: bold;
             margin-right: 4px;
         }
+        /* Tabs for narrative award sections */
+        #narrative-award .award-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; }
+        #narrative-award .award-tab { padding: 8px 16px; border: 1px solid var(--accent-blue-main); background-color: var(--accent-blue-light); color: var(--accent-blue-main); border-radius: 6px; cursor: pointer; font-weight: 600; }
+        #narrative-award .award-tab.active { background-color: var(--accent-blue-main); color: #fff; }
+        #narrative-award .award-content { display: none; }
+        #narrative-award .award-content.active { display: block; }
+        .work-green { color: #00695c; }
+        .work-blue { color: #2d5f9a; }
+        .work-red { color: #a03837; }
         /* Footer style */
         .page-footer {
             position: absolute;
@@ -1296,42 +1305,82 @@
             <p style="text-align: center; font-size: 1.2em; color: var(--primary-dark-text);">1-2月UGY學員回饋選出</p>
         </div>
 
+
         <div id="narrative-award" class="page-content humanities-section">
-            <h2>敘事醫學競賽獲獎</h2>
-            <h3 class="subtitle">短影音競賽獲獎作品</h3>
-            <div class="award-card-container">
-                <div class="award-card">
-                    <div class="medal">🥇 第一名</div>
-                    <div class="work">《那一刻，我被理解了》</div>
-                    <div class="author">吳曉琪／教學中心</div>
+            <h2>敘事醫學競賽獲獎—醫療的瞬間・永恆的感動</h2>
+            <div class="award-tabs">
+                <button class="award-tab active" data-target="photo-award">攝影競賽獲獎</button>
+                <button class="award-tab" data-target="video-award">敘事醫學競賽獲獎</button>
+            </div>
+
+            <div id="photo-award" class="award-content active">
+                <h3 class="subtitle">攝影競賽獲獎</h3>
+                <div class="award-card-container">
+                    <div class="award-card">
+                        <div class="medal">🥇 第一名</div>
+                        <div class="work work-green">《一瞬之光～靜默的專注》</div>
+                        <div class="author">廖麗月／公共事務室</div>
+                    </div>
+                    <div class="award-card">
+                        <div class="medal">🥈 第二名</div>
+                        <div class="work work-blue">《縫隙之間，微光流轉》</div>
+                        <div class="author">程蕙倫／婦產部</div>
+                    </div>
+                    <div class="award-card">
+                        <div class="medal">🥉 第三名</div>
+                        <div class="work work-red">《口罩遮不住她的溫柔，眼神藏不住那份堅定的守護》</div>
+                        <div class="author">楊惠君／公共事務室</div>
+                    </div>
                 </div>
-                <div class="award-card">
-                    <div class="medal">🥈 並列第二名</div>
-                    <ul>
-                        <li><span class="work">《護理的瞬間，永恆的感動》</span> - 虞麗月／公共事務室</li>
-                        <li><span class="work">《重生的祝福》</span> - 顏昊菁／8B</li>
-                        <li><span class="work">《一樣的中秋節》</span> - 楊書瑜／復健部</li>
-                        <li><span class="work">《移動的溫柔：從影像開始的守護》</span> - 黃美蘭／放射診斷科</li>
-                    </ul>
-                </div>
-                <div class="award-card">
-                    <div class="medal">🥉 並列第三名</div>
-                    <div class="work">《被記住的溫柔》</div>
-                    <div class="author">黃淑芬／藥劑部</div>
+                <div class="honorable-section">
+                    <h4>佳作</h4>
+                    <div class="honorable-list">
+                        <div class="honorable-card"><span class="honorable-index">1.</span> <span class="work work-green">《忙碌中停下腳步，記得溫度》</span> - 方郁涵／9A</div>
+                        <div class="honorable-card"><span class="honorable-index">2.</span> <span class="work work-blue">《烈日下的那一口安心》</span> - 李芯儀／健康促進組</div>
+                        <div class="honorable-card"><span class="honorable-index">3.</span> <span class="work work-red">《靜默中的專注》</span> - 林志遠／藥劑部</div>
+                        <div class="honorable-card"><span class="honorable-index">4.</span> <span class="work work-green">《靜靜地～陪你走一段》</span> - 黃詠琳／急診醫學部</div>
+                        <div class="honorable-card"><span class="honorable-index">5.</span> <span class="work work-blue">《在家也能被療癒。一雙手，撫平病痛，也撫慰人心》</span> - 楊惠君／公共事務室</div>
+                        <div class="honorable-card"><span class="honorable-index">6.</span> <span class="work work-red">《前輩與新人》</span> - 何承蔚／一般科</div>
+                    </div>
                 </div>
             </div>
-            <div class="honorable-section">
-                <h4>佳作</h4>
-                <div class="honorable-list">
-                    <div class="honorable-card"><span class="honorable-index">1.</span> <span class="work">《友善醫療：從同理開始》</span> - 杜漢祥／品質管理中心</div>
-                    <div class="honorable-card"><span class="honorable-index">2.</span> <span class="work">《兩塊錢的信封袋，跨越時空的念想》</span> - 陳乃薇、蘇婉淳、蕭雅雯／院長室 研究發展組</div>
-                    <div class="honorable-card"><span class="honorable-index">3.</span> <span class="work">《從沉默裡，「亂」出微光》</span> - 陳璟綺／復健部</div>
-                    <div class="honorable-card"><span class="honorable-index">4.</span> <span class="work">《有時候，一句話，就能讓人安心》</span> - 黃淑芬／藥劑部</div>
-                    <div class="honorable-card"><span class="honorable-index">5.</span> <span class="work">《生命微光～早產兒生命之旅》</span> - 林品吟、李晴玉、陳薇／護理部</div>
+
+            <div id="video-award" class="award-content">
+                <h3 class="subtitle">短影音競賽獲獎</h3>
+                <div class="award-card-container">
+                    <div class="award-card">
+                        <div class="medal">🥇 第一名</div>
+                        <div class="work work-green">《那一刻，我被理解了》</div>
+                        <div class="author">吳曉琪／教學中心</div>
+                    </div>
+                    <div class="award-card">
+                        <div class="medal">🥈 第二名</div>
+                        <ul>
+                            <li><span class="work work-blue">《護理的瞬間，永恆的感動》</span> - 廖麗月／公共事務室</li>
+                            <li><span class="work work-red">《移動的溫柔：從影像開始的守護》</span> - 黃美蘭／放射診斷科</li>
+                        </ul>
+                    </div>
+                    <div class="award-card">
+                        <div class="medal">🥉 第三名</div>
+                        <ul>
+                            <li><span class="work work-green">《重生的祝福》</span> - 顏旻萱／8B</li>
+                            <li><span class="work work-blue">《一樣的中秋節》</span> - 楊書瑜／復健部</li>
+                            <li><span class="work work-red">《被記住的溫柔》</span> - 黃淑芬／藥劑部</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="honorable-section">
+                    <h4>佳作</h4>
+                    <div class="honorable-list">
+                        <div class="honorable-card"><span class="honorable-index">1.</span> <span class="work work-green">《友善醫療：從同理開始》</span> - 杜漢祥／品質管理中心</div>
+                        <div class="honorable-card"><span class="honorable-index">2.</span> <span class="work work-blue">《兩塊錢的信封袋，跨越時空的念想》</span> - 陳乃蓁、蘇婉淳、蔡雅雯／院長室 研究發展組</div>
+                        <div class="honorable-card"><span class="honorable-index">3.</span> <span class="work work-red">《從沉默裡，「刮」出微光》</span> - 陳璟綺／復健部</div>
+                        <div class="honorable-card"><span class="honorable-index">4.</span> <span class="work work-green">《有時候，一句話，就能讓人安心》</span> - 黃淑芬／藥劑部</div>
+                        <div class="honorable-card"><span class="honorable-index">5.</span> <span class="work work-blue">《生命微光～早產兒生命之旅》</span> - 林品吟、李晴玉、陶菁／護理部</div>
+                    </div>
                 </div>
             </div>
         </div>
-
         <div id="chairman-report" class="page-content">
  main
             <h2 style="font-size: 3em; color: var(--primary-dark-text);">主席報告</h2>
@@ -2033,6 +2082,18 @@
                 });
             });
 
+            // Tab switching within narrative award page
+            const awardTabs = document.querySelectorAll('#narrative-award .award-tab');
+            const awardContents = document.querySelectorAll('#narrative-award .award-content');
+            awardTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    awardTabs.forEach(t => t.classList.remove('active'));
+                    awardContents.forEach(c => c.classList.remove('active'));
+                    tab.classList.add('active');
+                    const target = document.getElementById(tab.dataset.target);
+                    if (target) target.classList.add('active');
+                });
+            });
             // 監聽URL hash變化，支援瀏覽器的上一頁/下一頁
             window.addEventListener('hashchange', function() {
                 const hash = window.location.hash;
