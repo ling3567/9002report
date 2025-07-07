@@ -1304,6 +1304,25 @@
             font-size: 0.85em;
             color: var(--primary-medium-text);
         }
+        /* Music button for narrative award page */
+        #narrative-award .music-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 48px;
+            height: 48px;
+            background-color: var(--accent-blue-main);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.4em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
     </style>
     <!-- 引入 Tone.js 函式庫 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
@@ -1441,6 +1460,7 @@
                     </div>
                 </div>
             </div>
+            <button id="narrative-music-btn" class="music-button" title="播放頒獎音樂">🎵</button>
         </div>
         <div id="chairman-report" class="page-content">
             <h2 style="font-size: 3em; color: var(--primary-dark-text);">主席報告</h2>
@@ -2059,6 +2079,7 @@
             const sidebarLinks = document.querySelectorAll('.sidebar-link');
             const pageContents = document.querySelectorAll('.page-content');
             const submenuItems = document.querySelectorAll('#sidebar li.has-submenu');
+            const musicBtn = document.getElementById('narrative-music-btn');
 
             // 預設收合所有子選單
             submenuItems.forEach(li => li.classList.remove('open'));
@@ -2131,6 +2152,12 @@
                     }
                 });
             });
+
+            if (musicBtn) {
+                musicBtn.addEventListener('click', () => {
+                    playAwardsFanfare();
+                });
+            }
 
             // Tab switching within narrative award page
             const awardTabs = document.querySelectorAll('#narrative-award .award-tab');
