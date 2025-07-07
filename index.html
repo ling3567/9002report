@@ -1041,6 +1041,18 @@
             color: var(--primary-dark-text); /* Match other h3s */
             font-size: 2em; /* Match other h3s */
         }
+        /* Layout for h4 title with a button aligned to the right */
+        .h4-with-button {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .h4-with-button h4 {
+            margin: 0;
+            text-align: left;
+        }
         .action-button {
             background-color: var(--accent-blue-main); /* Blue button */
             color: var(--bg-white);
@@ -1243,12 +1255,12 @@
         <div id="medical-staff-survey" class="page-content">
             <h2>114年院內臨培問卷分析</h2>
             <div class="medical-staff-report-section">
-                <div class="h3-with-button">
-                    <h3>問卷質性分析</h3>
-                    <a href="#" class="action-button">問卷量性分析</a>
-                </div>
+            <h3>問卷質性分析</h3>
+            <div class="h4-with-button">
                 <h4>教師 (81位回覆)</h4>
-                <div class="feedback-summary teacher-feedback">
+                <a href="#" class="action-button">問卷量性分析</a>
+            </div>
+            <div class="feedback-summary teacher-feedback">
                     <div class="feedback-category">
                         <h4>教學津貼獎勵</h4>
                         <p>教師普遍反映津貼不足與發放不均，建議擴大獎勵制度。</p>
