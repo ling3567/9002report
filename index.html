@@ -536,6 +536,13 @@
             border: 1px solid var(--border-gray);
             table-layout: auto; /* allow columns to size based on content */
         }
+        .doctor-table {
+            table-layout: fixed; /* unify column widths */
+        }
+        .doctor-table th,
+        .doctor-table td {
+            width: calc(100% / 6);
+        }
         .cbme-table th, .cbme-table td {
             border: 1px solid var(--border-gray);
             padding: 12px;
@@ -1838,7 +1845,7 @@
                 </div>
 
                 <div class="cbme-table-container">
-                    <table class="cbme-table">
+                    <table class="cbme-table doctor-table">
                         <thead>
                             <tr>
                                 <th rowspan="2" style="text-align:center;">科部</th>
@@ -1871,7 +1878,7 @@
                 </div>
 
                 <div class="cbme-table-container">
-                    <table class="cbme-table">
+                    <table class="cbme-table doctor-table">
                         <thead>
                             <tr>
                                 <th rowspan="2" style="text-align:center;">科部</th>
