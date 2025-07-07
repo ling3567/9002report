@@ -6,6 +6,7 @@
     <title>114年07月醫學教育委員會</title>
     <!-- Load Noto Sans TC font with required weights -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         /* Define a color palette using CSS variables based on the screenshot */
         :root {
@@ -1145,8 +1146,83 @@
             background-color: #E8F5E9;
         }
 
-        .clinical-team-critical {
+.clinical-team-critical {
             background-color: #FFF3E0;
+        }
+        /* Narrative Award - Medical Humanities style */
+        #narrative-award.humanities-section {
+            background-color: #f8f9f9;
+            font-family: 'Noto Serif TC', 'Microsoft JhengHei', 'Noto Sans TC', serif;
+        }
+        #narrative-award .subtitle {
+            font-size: 1.6em;
+            font-weight: 600;
+            margin-top: -10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .award-card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .award-card {
+            background-color: #f2f6f5;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            flex: 1 1 280px;
+            max-width: 330px;
+            text-align: center;
+        }
+        .award-card .medal {
+            font-size: 2em;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .award-card .work {
+            font-style: italic;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .award-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+        .award-card ul li {
+            margin-bottom: 6px;
+        }
+        .honorable-section {
+            margin-top: 20px;
+        }
+        .honorable-section h4 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+        .honorable-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+        .honorable-card {
+            background-color: #f2f6f5;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            padding: 12px 15px;
+            flex: 1 1 180px;
+            max-width: 220px;
+            font-size: 0.95em;
+        }
+        .honorable-index {
+            font-weight: bold;
+            margin-right: 4px;
         }
         /* Footer style */
         .page-footer {
@@ -1220,12 +1296,45 @@
             <p style="text-align: center; font-size: 1.2em; color: var(--primary-dark-text);">1-2月UGY學員回饋選出</p>
         </div>
 
-        <div id="narrative-award" class="page-content">
+ codex/設計敘事醫學競賽獲獎頁面
+        <div id="narrative-award" class="page-content humanities-section">
             <h2>敘事醫學競賽獲獎</h2>
-            <p style="text-align: center; font-size: 1.2em; color: var(--primary-dark-text);">醫院敘事醫學系列競賽活動「醫療的瞬間・永恆的感動」短影音競賽及攝影競賽獲獎</p>
+            <h3 class="subtitle">短影音競賽獲獎作品</h3>
+            <div class="award-card-container">
+                <div class="award-card">
+                    <div class="medal">🥇 第一名</div>
+                    <div class="work">《那一刻，我被理解了》</div>
+                    <div class="author">吳曉琪／教學中心</div>
+                </div>
+                <div class="award-card">
+                    <div class="medal">🥈 並列第二名</div>
+                    <ul>
+                        <li><span class="work">《護理的瞬間，永恆的感動》</span> - 虞麗月／公共事務室</li>
+                        <li><span class="work">《重生的祝福》</span> - 顏昊菁／8B</li>
+                        <li><span class="work">《一樣的中秋節》</span> - 楊書瑜／復健部</li>
+                        <li><span class="work">《移動的溫柔：從影像開始的守護》</span> - 黃美蘭／放射診斷科</li>
+                    </ul>
+                </div>
+                <div class="award-card">
+                    <div class="medal">🥉 並列第三名</div>
+                    <div class="work">《被記住的溫柔》</div>
+                    <div class="author">黃淑芬／藥劑部</div>
+                </div>
+            </div>
+            <div class="honorable-section">
+                <h4>佳作</h4>
+                <div class="honorable-list">
+                    <div class="honorable-card"><span class="honorable-index">1.</span> <span class="work">《友善醫療：從同理開始》</span> - 杜漢祥／品質管理中心</div>
+                    <div class="honorable-card"><span class="honorable-index">2.</span> <span class="work">《兩塊錢的信封袋，跨越時空的念想》</span> - 陳乃薇、蘇婉淳、蕭雅雯／院長室 研究發展組</div>
+                    <div class="honorable-card"><span class="honorable-index">3.</span> <span class="work">《從沉默裡，「亂」出微光》</span> - 陳璟綺／復健部</div>
+                    <div class="honorable-card"><span class="honorable-index">4.</span> <span class="work">《有時候，一句話，就能讓人安心》</span> - 黃淑芬／藥劑部</div>
+                    <div class="honorable-card"><span class="honorable-index">5.</span> <span class="work">《生命微光～早產兒生命之旅》</span> - 林品吟、李晴玉、陳薇／護理部</div>
+                </div>
+            </div>
         </div>
 
         <div id="chairman-report" class="page-content">
+ main
             <h2 style="font-size: 3em; color: var(--primary-dark-text);">主席報告</h2>
         </div>
 
