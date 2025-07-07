@@ -1195,7 +1195,7 @@
             padding: 20px;
             flex: 1 1 auto;
             min-width: 250px;
-            width: fit-content;
+            width: 260px; /* Consistent width for all award cards */
             text-align: center;
         }
         .award-card .medal {
@@ -1220,6 +1220,15 @@
         }
         .award-card ul li {
             margin-bottom: 6px;
+        }
+        .second-place-list li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px; /* Uniform spacing between items */
+        }
+        .second-place-list li:last-child {
+            margin-bottom: 0;
         }
         .third-place-grid {
             display: flex;
