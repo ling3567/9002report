@@ -522,15 +522,18 @@
         }
 
         .cbme-table-container {
-            overflow-x: auto;
             width: 100%;
-            margin-bottom: 30px;
+            max-width: 1200px;
+            margin: 0 auto 30px auto;
+            padding: 0;
+            overflow-x: auto;
         }
         .cbme-table {
             width: 100%;
             border-collapse: collapse;
             font-size: 0.95em;
             border: 1px solid var(--border-gray);
+            table-layout: auto; /* allow columns to size based on content */
         }
         .cbme-table th, .cbme-table td {
             border: 1px solid var(--border-gray);
