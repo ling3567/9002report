@@ -82,6 +82,19 @@
             border-left: 2px solid var(--accent-blue-main); /* Blue border for sub-menus */
             padding-left: 10px;
         }
+        #sidebar li.has-submenu > ul {
+            display: none; /* 預設隱藏子選單 */
+        }
+        #sidebar li.has-submenu.open > ul {
+            display: block; /* 展開子選單 */
+        }
+        #sidebar li.has-submenu > a::after {
+            content: "▶"; /* 閉合箭頭 */
+            float: right;
+        }
+        #sidebar li.has-submenu.open > a::after {
+            content: "▼"; /* 展開箭頭 */
+        }
         #sidebar ul li ul li a {
             padding: 10px 10px;
             font-size: 0.95em;
@@ -1065,7 +1078,7 @@
             <li><a href="#awards" class="sidebar-link active">頒獎</a></li>
             <li><a href="#chairman-report" class="sidebar-link">主席報告</a></li>
             <li><a href="#last-meeting-followup" class="sidebar-link">上次會議追蹤</a></li>
-            <li>
+            <li class="has-submenu">
                 <a href="#report-discussion" class="sidebar-link">報告及討論事項</a>
                 <ul>
                     <li>
@@ -1710,6 +1723,10 @@
         document.addEventListener('DOMContentLoaded', function() {
             const sidebarLinks = document.querySelectorAll('.sidebar-link');
             const pageContents = document.querySelectorAll('.page-content');
+            const submenuItems = document.querySelectorAll('#sidebar li.has-submenu');
+
+            // 預設收合所有子選單
+            submenuItems.forEach(li => li.classList.remove('open'));
 
             // 在頁面加載時初始化音頻相關組件
             initializeAwardsAudio();
@@ -1741,14 +1758,18 @@
                     const activeLink = document.querySelector(`.sidebar-link[href="#${id}"]`);
                     if (activeLink) {
                         activeLink.classList.add('active');
-                        // 如果是子頁籤，也要讓父頁籤 active (報告及討論事項)
+                        // 如果是子頁籤，也要讓父頁籤 active 並展開子選單
                         let parentUl = activeLink.closest('ul');
                         while (parentUl && parentUl.parentElement && parentUl.parentElement.tagName === 'LI') {
-                            const parentLink = parentUl.parentElement.querySelector('.sidebar-link:not(.sub-link)');
+                            const parentLi = parentUl.parentElement;
+                            const parentLink = parentLi.querySelector('.sidebar-link:not(.sub-link)');
                             if (parentLink) {
                                 parentLink.classList.add('active');
                             }
-                            parentUl = parentUl.parentElement.parentElement; // 繼續往上找
+                            if (parentLi.classList.contains('has-submenu')) {
+                                parentLi.classList.add('open');
+                            }
+                            parentUl = parentLi.parentElement.parentElement; // 繼續往上找
                         }
                     }
                 }
@@ -1767,6 +1788,12 @@
                     const targetId = this.getAttribute('href').substring(1); // 取得連結的hash值 (不含#)
                     history.pushState(null, '', `#${targetId}`); // 更新URL hash
                     showPage(targetId);
+
+                    // 點擊有子選單的主項目時切換展開狀態
+                    const parentLi = this.parentElement;
+                    if (!this.classList.contains('sub-link') && parentLi.classList.contains('has-submenu')) {
+                        parentLi.classList.toggle('open');
+                    }
                 });
             });
 
