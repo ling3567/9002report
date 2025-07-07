@@ -774,6 +774,32 @@
             background-color: #FFF3E0; /* light orange */
             border-color: #FF9800;
         }
+        .pgy-plan-table-wrapper {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+        .pgy-plan-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        .pgy-plan-table th,
+        .pgy-plan-table td {
+            padding: 12px;
+            text-align: left;
+        }
+        .pgy-plan-table th {
+            background-color: #E65100;
+            color: var(--bg-white);
+            font-weight: bold;
+        }
+        .pgy-plan-table tbody tr {
+            border-bottom: 1px solid var(--border-gray);
+        }
+        .pgy-plan-table tbody tr:nth-child(even) {
+            background-color: #f5f5f5;
+        }
+
 
         .intern-plan-table-wrapper {
             overflow-x: auto;
@@ -1316,35 +1342,40 @@
 
             <div class="action-plan-section pgy-pharmacist-section">
                 <h3>PGY藥師</h3>
-                <div class="plan-do-check-container">
-                    <div class="plan-do-check-item">
-                        <h4>Plan</h4>
-                        <ul>
-                            <li>邀請蔡孟修主任演講：生活型態醫學介紹。</li>
-                            <li>7/29於藥劑部演講，同時錄製影音課程，請蔡主任出5題選擇題 (連同影片置於電子學習歷程)。</li>
-                            <li>PGY於到職三個月內完成(於「試用期評估單」增列項目)。</li>
-                        </ul>
-                    </div>
-                    <div class="plan-do-check-item">
-                        <h4>Do</h4>
-                        <ul>
-                            <li>對門診或準備出院病人的衛教，加入對應生活型態醫學支柱。</li>
-                            <li>指導PGY「藥物諮詢」的藥師，於實作中引導學員思考如何建議病人改善飲食、運動或睡眠等生活型態？如：長期依賴BZD、服用降壓藥但飲食重鹹、COPD合併吸菸等案例，訓練PGY運用諮詢技巧了解病人生活習慣，並進行基本衛教或協助轉介。</li>
-                            <li>於藥劑部全人照護教育紀錄表 (藥品諮詢)增列六大支柱可複選。</li>
-                        </ul>
-                    </div>
-                    <div class="plan-do-check-item">
-                        <h4>Check</h4>
-                        <ul>
-                            <li>修訂「藥劑部跨領域團隊合作照護訓練辦法」。</li>
-                            <li>請當次負責指導的臨床組教師，於Brief時指導學生就本次選定案例，討論如何將六大支柱作為衛教病人的內容。</li>
-                            <li>請當次負責指導的臨床組教師，於Debrief時確認學生回饋時，有寫如何將六大支柱作為衛教病人的內容。</li>
-                            <li>修訂「臨床照護與團隊合作實務課程」。</li>
-                            <li>於訓練期間，融入生活型態失衡導致疾病惡化的情境（如糖尿病合併夜班工作失眠、高齡病人長期臥床無活動），讓學員練習如何在建議中提出非藥物介入計畫（如：改善作息、鼓勵簡單活動）並記錄於SOAP中。</li>
-                            <li>指導教師檢視學員於SOAP有寫如何納入六大支柱作為非藥物建議的一部分。</li>
-                        </ul>
-                    </div>
+                                <div class="pgy-plan-table-wrapper">
+                    <table class="pgy-plan-table">
+                        <thead>
+                            <tr>
+                                <th>Plan</th>
+                                <th>Do</th>
+                                <th>Check</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>邀請蔡孟修主任演講：生活型態醫學介紹</td>
+                                <td>7/29於藥劑部演講，同時錄製影音課程，請蔡主任出5題選擇題（連同影片置於電子學習歷程）</td>
+                                <td>PGY於到職三個月內完成（於「試用期評估單」增列項目）</td>
+                            </tr>
+                            <tr>
+                                <td>對門診或護理出院病人的領教，加入對應生活型態醫學支柱。</td>
+                                <td>指導PGY「藥物諮詢」的藥師，於實作中引導學員思考如何建議病人改善飲食、運動或睡眠等生活型態？如：長期依賴BZD、服用降壓藥但飲食重鹹、COPD合併吸菸等案例，訓練PGY運用諮詢技巧了解病人生活習慣，並進行基本衛教或協助轉介。</td>
+                                <td>於藥劑部全人照護教育紀錄表（藥品諮詢）納列六大支柱可複選。</td>
+                            </tr>
+                            <tr>
+                                <td>修訂「藥劑部跨領域團隊合作照護訓練辦法」</td>
+                                <td>請當次負責指導的臨床組教師，於 Brief 時指導學生就本次選定案例，討論如何將六大支柱作為衛教病人的內容。</td>
+                                <td>請當次負責指導的臨床組教師，於 Debrief 時確認學生回饋，有寫如何將六大支柱作為衛教病人的內容。</td>
+                            </tr>
+                            <tr>
+                                <td>修訂「臨床照護與團隊合作實務課程」</td>
+                                <td>於訓練期間，融入生活型態失衡導致疾病惡化的情境（如糖尿病合併夜班工作失眠、高齡病人長期臥床無活動），讓學員練習如何在建議中提出非藥物介入計畫（如：改善作息、鼓勵簡單活動）並記錄於SOAP中。</td>
+                                <td>指導教師檢視學員於SOAP有寫如何納入六大支柱作為非藥物建議的一部分。</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
+
             </div>
         </div>
 
