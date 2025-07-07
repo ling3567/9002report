@@ -451,7 +451,6 @@
         .ccc-cbme-report {
             max-width: 95%;
             margin: 0 auto;
-            text-align: center;
         }
         .ccc-cbme-report h2 {
             color: var(--primary-dark-text);
@@ -462,7 +461,7 @@
         }
         .summary-boxes {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             gap: 25px;
             margin-bottom: 40px;
             flex-wrap: nowrap; /* keep all boxes on the same row */
@@ -471,8 +470,7 @@
             background-color: var(--accent-blue-light); /* Light blue background */
             border-radius: 12px;
             padding: 20px 25px;
-            flex: 1 0 30%;
-            max-width: 30%;
+            flex: 1;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             text-align: center;
             transition: transform 0.2s ease-in-out;
@@ -517,10 +515,10 @@
             color: var(--bg-white);
             padding: 10px 20px;
             border-radius: 8px;
-            margin: 40px auto 20px auto;
+            margin: 40px 0 20px 0;
             font-size: 1.4em;
             font-weight: bold;
-            text-align: center;
+            text-align: left;
         }
 
         .cbme-table-container {
@@ -532,15 +530,14 @@
             width: 100%;
             border-collapse: collapse;
             font-size: 0.95em;
-            min-width: 800px;
-            border-radius: 8px;
-            overflow: hidden;
+            border: 1px solid var(--border-gray);
         }
         .cbme-table th, .cbme-table td {
             border: 1px solid var(--border-gray);
             padding: 12px;
-            text-align: left;
+            text-align: center;
             vertical-align: middle;
+            word-break: break-word;
         }
         .cbme-table th {
             background-color: var(--accent-blue-main);
@@ -1805,7 +1802,7 @@
             <div class="ccc-cbme-report">
                 <h2>CBME執行現況</h2>
 
-                <h3 class="highlight-button">醫師 (I)</h3>
+                <h3 class="highlight-button">醫師</h3>
                 <div class="summary-boxes">
                     <div class="summary-box">
                         <h3>已建立</h3>
@@ -1824,15 +1821,14 @@
                     </div>
                 </div>
 
-                <h3 class="highlight-button">醫師 (II)</h3>
                 <div class="cbme-table-container">
                     <table class="cbme-table">
                         <thead>
                             <tr>
                                 <th>科部</th>
                                 <th>CCC推動執行者</th>
-                                <th colspan="2">CCC制度建立</th>
-                                <th colspan="3">CCC評核月</th>
+                                <th colspan="3">CCC制度建立</th>
+                                <th rowspan="2">CCC評核月</th>
                             </tr>
                             <tr>
                                 <th></th>
@@ -1840,37 +1836,34 @@
                                 <th>有</th>
                                 <th>無</th>
                                 <th>書面</th>
-                                <th></th>
-                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>內科部</td><td>甘偉志主任</td><td class="star-icon">★</td><td></td><td>V</td><td></td><td></td></tr>
-                            <tr><td>外科部</td><td>陳志偉主任</td><td class="star-icon">★</td><td></td><td>V</td><td>6、12</td><td></td></tr>
-                            <tr><td>神經外科</td><td>陳志偉主任</td><td class="star-icon">★</td><td></td><td>V</td><td>3、6、9、12</td><td></td></tr>
-                            <tr><td>婦產部</td><td>康介乙主任</td><td class="star-icon">★</td><td></td><td>V</td><td>7、12</td><td></td></tr>
-                            <tr><td>神經內科</td><td>葉珀秀醫師</td><td class="star-icon">★</td><td></td><td>V</td><td></td><td></td></tr>
-                            <tr><td>家庭醫學部</td><td>蔡岡廷部長</td><td class="star-icon">★</td><td></td><td>V</td><td>1、7</td><td></td></tr>
-                            <tr><td>放射診斷科</td><td>郭禹廷部長</td><td class="star-icon">★</td><td></td><td>V</td><td>6, 12</td><td></td></tr>
-                            <tr><td>放射腫瘤部</td><td>何聖佑部長</td><td class="star-icon">★</td><td></td><td>V</td><td>7、12</td><td></td></tr>
-                            <tr><td>核子醫學科</td><td>李將瑄主任</td><td class="star-icon">★</td><td></td><td>V</td><td>1、7</td><td></td></tr>
-                            <tr><td>牙醫部</td><td>陳冠良主任</td><td class="star-icon">★</td><td></td><td>V</td><td>7</td><td></td></tr>
-                            <tr><td>耳鼻喉部</td><td>張世倫部長</td><td class="star-icon">★</td><td></td><td>x</td><td>6、12</td><td></td></tr>
-                            <tr><td>急診醫學部</td><td>王嘉地主任</td><td class="star-icon">★</td><td></td><td>待補件</td><td>7~8/評核</td><td></td></tr>
-                            <tr><td>麻醉部</td><td>褚錦承副部長</td><td class="star-icon">★</td><td></td><td>V</td><td>6、12</td><td></td></tr>
+                            <tr><td>內科部</td><td>甘偉志主任</td><td class="star-icon">★</td><td></td><td>V</td><td></td></tr>
+                            <tr><td>外科部</td><td>陳志偉主任</td><td class="star-icon">★</td><td></td><td>V</td><td>6、12</td></tr>
+                            <tr><td>神經外科</td><td>陳志偉主任</td><td class="star-icon">★</td><td></td><td>V</td><td>3、6、9、12</td></tr>
+                            <tr><td>婦產部</td><td>康介乙主任</td><td class="star-icon">★</td><td></td><td>V</td><td>7、12</td></tr>
+                            <tr><td>神經內科</td><td>葉珀秀醫師</td><td class="star-icon">★</td><td></td><td>V</td><td></td></tr>
+                            <tr><td>家庭醫學部</td><td>蔡岡廷部長</td><td class="star-icon">★</td><td></td><td>V</td><td>1、7</td></tr>
+                            <tr><td>放射診斷科</td><td>郭禹廷部長</td><td class="star-icon">★</td><td></td><td>V</td><td>6, 12</td></tr>
+                            <tr><td>放射腫瘤部</td><td>何聖佑部長</td><td class="star-icon">★</td><td></td><td>V</td><td>7、12</td></tr>
+                            <tr><td>核子醫學科</td><td>李將瑄主任</td><td class="star-icon">★</td><td></td><td>V</td><td>1、7</td></tr>
+                            <tr><td>牙醫部</td><td>陳冠良主任</td><td class="star-icon">★</td><td></td><td>V</td><td>7</td></tr>
+                            <tr><td>耳鼻喉部</td><td>張世倫部長</td><td class="star-icon">★</td><td></td><td>x</td><td>6、12</td></tr>
+                            <tr><td>急診醫學部</td><td>王嘉地主任</td><td class="star-icon">★</td><td></td><td>待補件</td><td>7~8/評核</td></tr>
+                            <tr><td>麻醉部</td><td>褚錦承副部長</td><td class="star-icon">★</td><td></td><td>V</td><td>6、12</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <h3 class="highlight-button">醫師 (III)</h3>
                 <div class="cbme-table-container">
                     <table class="cbme-table">
                         <thead>
                             <tr>
                                 <th>科部</th>
                                 <th>CCC推動執行者</th>
-                                <th colspan="2">CCC制度建立</th>
-                                <th colspan="3">CCC評核月</th>
+                                <th colspan="3">CCC制度建立</th>
+                                <th rowspan="2">CCC評核月</th>
                             </tr>
                             <tr>
                                 <th></th>
@@ -1878,23 +1871,21 @@
                                 <th>有</th>
                                 <th>無</th>
                                 <th>書面</th>
-                                <th></th>
-                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>兒科部</td><td>周琪部長</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td></td><td></td></tr>
-                            <tr><td>泌尿外科</td><td>李高漢醫師</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td>1、7</td><td></td></tr>
-                            <tr><td>復健部</td><td>王鈺霖部長</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td></td><td></td></tr>
-                            <tr><td>整形外科</td><td>葉敬淳醫師</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td>6、12</td><td></td></tr>
-                            <tr><td>精神醫學部</td><td>張志誠主任</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td>1、7</td><td></td></tr>
-                            <tr><td>中醫部</td><td>王瑜婷主任</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td>配合學會(5、11)</td><td></td></tr>
+                            <tr><td>兒科部</td><td>周琪部長</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td></td></tr>
+                            <tr><td>泌尿外科</td><td>李高漢醫師</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td>1、7</td></tr>
+                            <tr><td>復健部</td><td>王鈺霖部長</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td></td></tr>
+                            <tr><td>整形外科</td><td>葉敬淳醫師</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td>6、12</td></tr>
+                            <tr><td>精神醫學部</td><td>張志誠主任</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td>1、7</td></tr>
+                            <tr><td>中醫部</td><td>王瑜婷主任</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td>配合學會(5、11)</td></tr>
                             <!-- 刪除臨床病理科資料 -->
-                            <tr><td>解剖病理科</td><td>廖以莊醫師</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td>2026/12之後(1、7)</td><td></td></tr>
-                            <tr><td>職業醫學科</td><td>郭婉吟主任</td><td></td><td class="dot-icon">●</td><td>x</td><td>配合學會</td><td></td></tr>
-                            <tr><td>骨科部</td><td>林昇輝主任</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td></td><td></td></tr>
-                            <tr><td>眼科部</td><td>郭淑純部長</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td>8月之後再回覆</td><td></td></tr>
-                            <tr><td>皮膚科</td><td>賴豐傑主任</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td></td><td><td></tr>
+                            <tr><td>解剖病理科</td><td>廖以莊醫師</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td>2026/12之後(1、7)</td></tr>
+                            <tr><td>職業醫學科</td><td>郭婉吟主任</td><td></td><td class="dot-icon">●</td><td>x</td><td>配合學會</td></tr>
+                            <tr><td>骨科部</td><td>林昇輝主任</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td></td></tr>
+                            <tr><td>眼科部</td><td>郭淑純部長</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td>8月之後再回覆</td></tr>
+                            <tr><td>皮膚科</td><td>賴豐傑主任</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td></td></tr>
                         </tbody>
                     </table>
                 </div>
