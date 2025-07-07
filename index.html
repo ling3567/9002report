@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>114年07月醫學教育委員會</title>
+    <style>
+        /* Define a color palette using CSS variables based on the screenshot */
+        :root {
+            --primary-dark-text: #333333; /* Dark text for headings, main content */
+            --primary-medium-text: #666666; /* Medium text for details */
+            --bg-white: #FFFFFF; /* Main background for content blocks */
+            --bg-light-gray: #F9F9F9; /* Very light background for overall page */
+            --border-gray: #E0E0E0; /* Light gray for borders */
+            --accent-blue-main: #4285F4; /* Google Blue for strong accents, active states */
+            --accent-blue-light: #E8F0F8; /* Very light blue for backgrounds (like top bar) */
+            --accent-blue-medium: #D2E3FC; /* Slightly darker light blue for some backgrounds */
+            --group-label-bg: #FCE4CC; /* Peach/orange for group labels */
+            --group-label-text: #D84315; /* Darker orange for group label text */
+            --success-green: #28a745; /* Standard green for success */
+            --danger-red: #dc3545; /* Standard red for danger */
+            --warning-yellow: #ffc107; /* Standard yellow for warnings */
+        }
+
+        body {
+            font-family: '微軟正黑體', 'Microsoft JhengHei', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            background-color: var(--bg-light-gray); /* Overall light background */
+        }
+        #sidebar {
+            width: 250px; /* Consistent sidebar width */
+            background-color: #F2F2F2; /* 淡雅的淺灰色 */
+            padding: 20px;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1); /* Soft shadow */
+            overflow-y: auto;
+            color: var(--primary-dark-text); /* Dark text for sidebar */
+        }
+        #sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        #sidebar ul li {
+            margin-bottom: 10px;
+        }
+        #sidebar ul li a {
+            display: block;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: var(--primary-dark-text); /* Dark text for links */
+            border-radius: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: normal;
+        }
+        #sidebar ul li a:hover,
+        #sidebar ul li a.active {
+            background-color: var(--accent-blue-main); /* Blue highlight on hover/active */
+            color: var(--bg-white); /* White text on active/hover */
+            font-weight: bold;
+        }
+        #sidebar ul li ul { /* 子菜單樣式 */
+            margin-top: 5px;
+            margin-left: 15px;
+            border-left: 2px solid var(--accent-blue-main); /* Blue border for sub-menus */
+            padding-left: 10px;
+        }
+        #sidebar ul li ul li a {
+            padding: 10px 10px;
+            font-size: 0.95em;
+            color: var(--primary-medium-text); /* Lighter text for sub-links */
+        }
+        #sidebar ul li ul li a:hover,
+        #sidebar ul li ul li a.active {
+            background-color: var(--accent-blue-main);
+            color: var(--bg-white);
+        }
+
+        #content-area {
+            flex-grow: 1;
+            padding: 30px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: var(--bg-white); /* Main content area background */
+        }
+        .page-content {
+            display: none;
+            width: 100%; /* Consistent width */
+            max-width: 1600px; /* Consistent max width */
+            aspect-ratio: 16 / 9;
+            background-color: var(--bg-white); /* Content box background */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Softer shadow */
+            padding: 40px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            color: var(--primary-dark-text); /* Default text color */
+            position: relative; /* For footer positioning */
+            /* Removed padding-bottom to allow content to fill space */
+        }
+        .page-content.active {
+            display: block;
+        }
+        h2 { /* Main page titles */
+            color: var(--primary-dark-text);
+            border-bottom: 3px solid var(--accent-blue-main); /* Blue underline */
+            padding-bottom: 15px;
+            margin-top: 0;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 2.2em;
+        }
+        h3 { /* Section titles */
+            color: var(--primary-dark-text);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            text-align: center;
+            border-bottom: 1px solid var(--border-gray); /* Subtle border */
+            padding-bottom: 10px;
+        }
+        h4 { /* Sub-section titles */
+            color: var(--primary-dark-text);
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+            text-align: center;
+        }
+        h5 { /* Smallest titles */
+            color: var(--primary-dark-text);
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        p {
+            line-height: 1.8;
+            color: var(--primary-medium-text);
+            margin-bottom: 15px;
+        }
+        ul {
+            list-style: disc;
+            margin-left: 25px;
+            color: var(--primary-medium-text);
+            margin-bottom: 15px;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .data-table th, .data-table td {
+            border: 1px solid var(--border-gray);
+            padding: 12px;
+            text-align: left;
+        }
+        .data-table th {
+            background-color: var(--accent-blue-main);
+            color: var(--bg-white);
+            font-weight: bold;
+        }
+        .data-table tr:nth-child(even) {
+            background-color: var(--accent-blue-light); /* Light blue for even rows */
+        }
+        .data-table tr:nth-child(odd) {
+            background-color: var(--bg-white);
+        }
+
+        /* Competition Info (Clinical Skills) */
+        .competition-info {
+            background-color: var(--accent-blue-light); /* Light blue background */
+            border: 1px solid var(--accent-blue-main);
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .competition-info h2 {
+            color: var(--primary-dark-text);
+            border-bottom: none;
+            font-size: 2em;
+            margin-bottom: 25px;
+        }
+        .competition-info .team-section {
+            margin-bottom: 30px;
+            border-bottom: 1px dashed var(--border-gray);
+            padding-bottom: 20px;
+        }
+        .competition-info .team-section:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .competition-info .team-section h5 {
+            color: var(--accent-blue-main); /* Blue for team section titles */
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .competition-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto; /* Center the list */
+            max-width: 600px; /* Limit width for readability */
+            text-align: left;
+        }
+        .competition-info ul li {
+            margin-bottom: 8px;
+            color: var(--primary-medium-text);
+            font-size: 1.1em;
+        }
+        .highlight-info {
+            background-color: var(--accent-blue-main);
+            color: var(--bg-white);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 10px 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            text-align: center;
+            font-size: 1.1em;
+        }
+        .megaphone-icon {
+            font-size: 3em; /* Larger emoji icon */
+            color: var(--accent-blue-main); /* Match accent color */
+            margin-bottom: 15px;
+            display: block; /* Ensure it takes its own line and centers */
+            text-align: center;
+        }
+
+
+        /* Teacher Evaluation Report */
+        .evaluation-report {
+            max-width: 95%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .evaluation-report h2 {
+            color: var(--primary-dark-text);
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--accent-blue-main);
+            padding-bottom: 15px;
+        }
+        .evaluation-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+            background-color: var(--bg-white); /* White background for the row */
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Softer shadow */
+        }
+        .group-label {
+            background-color: var(--group-label-bg); /* Peach/orange background for label */
+            color: var(--group-label-text); /* Darker orange text */
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.2em;
+            white-space: nowrap;
+            margin-right: 30px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            min-width: 140px;
+            text-align: center;
+        }
+        .horizontal-steps {
+            display: flex;
+            flex-grow: 1;
+            justify-content: space-around;
+            gap: 25px;
+            flex-wrap: nowrap;
+            position: relative;
+            padding: 0 15px;
+        }
+        .step-card {
+            background-color: var(--bg-white);
+            border: 2px solid var(--border-gray);
+            border-radius: 18px;
+            padding: 20px;
+            flex: 1;
+            min-width: 200px;
+            max-width: 280px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .step-card.first-step {
+            border-color: var(--danger-red); /* Red border for first step */
+        }
+        .step-icon {
+            font-size: 3em;
+            color: var(--primary-dark-text); /* Dark text for icons */
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+        .step-date-top {
+            background-color: var(--accent-blue-light); /* Light blue background */
+            color: var(--primary-dark-text);
+            padding: 8px 15px;
+            border-radius: 15px;
+            font-size: 1em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            white-space: nowrap;
+        }
+        .step-card.first-step .step-date-top {
+            background-color: var(--danger-red); /* Red background for first step date */
+            color: var(--bg-white);
+        }
+        .step-title {
+            font-weight: bold;
+            color: var(--primary-dark-text);
+            margin-bottom: 8px;
+            font-size: 1.15em;
+        }
+        .step-detail {
+            color: var(--primary-medium-text);
+            font-size: 0.9em;
+        }
+        .separator-line {
+            border-top: 2px dashed var(--border-gray);
+            margin: 50px 0;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .horizontal-steps .step-card:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-blue-main); /* Blue line */
+            z-index: 1;
+        }
+        .horizontal-steps .step-card:not(:last-child)::before {
+            content: '';
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-blue-main);
+            border-radius: 50%;
+            z-index: 3;
+            border: 3px solid var(--bg-white); /* White border */
+        }
+
+        /* CCC/CBME Report (Resident Training) */
+        .ccc-cbme-report {
+            max-width: 95%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .ccc-cbme-report h2 {
+            color: var(--primary-dark-text);
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--accent-blue-main);
+            padding-bottom: 15px;
+        }
+        .summary-boxes {
+            display: flex;
+            justify-content: space-around;
+            gap: 25px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .summary-box {
+            background-color: var(--accent-blue-light); /* Light blue background */
+            border-radius: 12px;
+            padding: 20px 25px;
+            flex: 1;
+            min-width: 250px;
+            max-width: 30%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.2s ease-in-out;
+        }
+        .summary-box:hover {
+            transform: translateY(-5px);
+        }
+        .summary-box h3 {
+            color: var(--primary-dark-text);
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.5em;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .summary-box .count {
+            font-size: 3em;
+            font-weight: bold;
+            color: var(--accent-blue-main); /* Blue count */
+            display: block;
+            margin-bottom: 10px;
+        }
+        .summary-box .details {
+            font-size: 1em;
+            color: var(--primary-medium-text);
+            margin-top: 5px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: var(--primary-dark-text);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border-gray);
+            padding-bottom: 10px;
+            text-align: left;
+        }
+
+        .cbme-table-container {
+            overflow-x: auto;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        .cbme-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95em;
+            min-width: 800px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .cbme-table th, .cbme-table td {
+            border: 1px solid var(--border-gray);
+            padding: 12px;
+            text-align: left;
+            vertical-align: middle;
+        }
+        .cbme-table th {
+            background-color: var(--accent-blue-main);
+            color: var(--bg-white);
+            font-weight: bold;
+        }
+        .cbme-table tr:nth-child(even) {
+            background-color: var(--accent-blue-light);
+        }
+        .cbme-table tr:nth-child(odd) {
+            background-color: var(--bg-white);
+        }
+        .cbme-table .check-icon {
+            color: var(--success-green);
+            font-weight: bold;
+            font-size: 1.4em;
+            text-align: center;
+        }
+        .cbme-table .cross-icon {
+            color: var(--danger-red);
+            font-weight: bold;
+            font-size: 1.4em;
+            text-align: center;
+        }
+        .cbme-table .star-icon {
+            color: var(--warning-yellow);
+            font-weight: bold;
+            font-size: 1.4em;
+            text-align: center;
+        }
+        .cbme-table .dot-icon {
+            color: var(--accent-blue-main); /* Blue dot */
+            font-weight: bold;
+            font-size: 1.4em;
+            text-align: center;
+        }
+        .cbme-table .note {
+            font-size: 0.85em;
+            color: var(--primary-medium-text);
+        }
+
+        /* Medical Staff Training Sections */
+        .medical-staff-report-section {
+            margin-bottom: 50px;
+            background-color: var(--bg-white); /* Ensure white background for each section */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .medical-staff-report-section h3 {
+            color: var(--primary-dark-text);
+            font-size: 2em;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--accent-blue-main);
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        .feedback-summary {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 25px;
+        }
+        .feedback-category {
+            background-color: var(--accent-blue-light); /* Light blue background */
+            border: 1px solid var(--accent-blue-main);
+            border-radius: 10px;
+            padding: 20px;
+            flex: 1;
+            min-width: 300px;
+            max-width: 48%;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        .feedback-category h4 {
+            color: var(--primary-dark-text);
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+            border-bottom: 1px solid var(--border-gray);
+            padding-bottom: 8px;
+        }
+        .feedback-category p {
+            font-size: 0.95em;
+            color: var(--primary-medium-text);
+            margin-bottom: 0;
+        }
+
+        .pros-cons-container {
+            display: flex;
+            gap: 25px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .pros-section, .cons-section {
+            flex: 1;
+            min-width: 350px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            position: relative;
+            padding-top: 60px; /* Space for icon */
+        }
+        .pros-section {
+            background-color: #e8f5e9; /* Light green */
+            border: 2px solid var(--success-green);
+        }
+        .cons-section {
+            background-color: #ffe8e8; /* Light red */
+            border: 2px solid var(--danger-red);
+        }
+        .pros-section h4, .cons-section h4 {
+            font-size: 1.6em;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .pros-section h4 { color: var(--success-green); }
+        .cons-section h4 { color: var(--danger-red); }
+        .pros-cons-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .pros-cons-list li {
+            margin-bottom: 10px;
+            font-size: 1em;
+            color: var(--primary-medium-text);
+            display: flex;
+            align-items: flex-start;
+        }
+        .pros-cons-list li::before {
+            content: '•';
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            margin-right: 0.8em;
+            font-size: 1.2em;
+        }
+        .pros-section .pros-cons-list li::before {
+            color: var(--success-green);
+        }
+        .cons-section .pros-cons-list li::before {
+            color: var(--danger-red);
+        }
+        .icon-overlay {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5em; /* Emoji icon size */
+            z-index: 10;
+        }
+
+        .suggestion-box {
+            background-color: var(--accent-blue-light); /* Light blue background */
+            border: 2px solid var(--accent-blue-main); /* Blue border */
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 40px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        .suggestion-box h4 {
+            color: var(--primary-dark-text); /* Dark text */
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            text-align: center;
+        }
+        .suggestion-box ul {
+            list-style: disc;
+            margin-left: 25px;
+            padding: 0;
+        }
+        .suggestion-box ul li {
+            margin-bottom: 10px;
+            font-size: 1em;
+            color: var(--primary-medium-text);
+        }
+        .action-plan-section {
+            margin-top: 50px;
+            text-align: left;
+        }
+        .action-plan-section h3 {
+            color: var(--primary-dark-text);
+            font-size: 2em;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--accent-blue-main);
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        .plan-do-check-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .plan-do-check-item {
+            background-color: var(--accent-blue-light); /* Light blue background */
+            border: 1px solid var(--accent-blue-main);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .plan-do-check-item h4 {
+            font-size: 1.4em;
+            color: var(--primary-dark-text);
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-gray);
+            padding-bottom: 8px;
+            text-align: left; /* Align Plan/Do/Check titles left */
+        }
+        .plan-do-check-item ul {
+            list-style: none; /* Remove bullets */
+            padding: 0;
+            margin: 0;
+        }
+        .plan-do-check-item ul li {
+            margin-bottom: 8px;
+            font-size: 1em;
+            color: var(--primary-medium-text);
+            position: relative;
+            padding-left: 25px; /* Space for custom bullet */
+        }
+        .plan-do-check-item ul li::before {
+            content: '✓'; /* Custom bullet */
+            color: var(--success-green);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .plan-do-check-item ul li strong {
+            color: var(--accent-blue-main);
+        }
+
+        .osce-revision-section {
+            margin-top: 50px;
+            text-align: left;
+        }
+        .osce-revision-section h3 {
+            color: var(--primary-dark-text);
+            font-size: 2em;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--accent-blue-main);
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        .osce-revision-content {
+            background-color: var(--accent-blue-light); /* Light blue background */
+            border: 1px solid var(--accent-blue-main);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .osce-revision-content p {
+            font-size: 1.05em;
+            color: var(--primary-dark-text);
+            margin-bottom: 20px;
+        }
+        .osce-revision-content ul {
+            list-style: disc;
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        .osce-revision-content ul li {
+            margin-bottom: 10px;
+            color: var(--primary-medium-text);
+            font-size: 1em;
+        }
+        .osce-revision-table-wrapper {
+            overflow-x: auto;
+            margin-top: 25px;
+        }
+        .osce-revision-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .osce-revision-table th, .osce-revision-table td {
+            border: 1px solid var(--border-gray);
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        .osce-revision-table th {
+            background-color: var(--accent-blue-main);
+            color: var(--bg-white);
+            font-weight: bold;
+        }
+        .osce-revision-table tr:nth-child(even) {
+            background-color: var(--accent-blue-light);
+        }
+        .osce-revision-table tr:nth-child(odd) {
+            background-color: var(--bg-white);
+        }
+        .osce-revision-table .note {
+            font-size: 0.85em;
+            color: var(--primary-medium-text);
+        }
+
+        .activity-results-section {
+            margin-top: 50px;
+            text-align: left;
+        }
+        .activity-results-section h3 {
+            color: var(--primary-dark-text);
+            font-size: 2em;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--accent-blue-main);
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        .activity-summary-card {
+            background-color: var(--accent-blue-light); /* Light blue background */
+            border: 1px solid var(--accent-blue-main);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .activity-summary-card h4 {
+            color: var(--primary-dark-text);
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .activity-content-layout {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .activity-info-left {
+            flex: 1;
+            min-width: 350px;
+            text-align: left;
+            padding-right: 10px;
+        }
+        .activity-info-left ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .activity-info-left ul li {
+            margin-bottom: 10px;
+            font-size: 1em;
+            color: var(--primary-medium-text);
+        }
+        .activity-info-left ul li strong {
+            color: var(--primary-dark-text); /* Stronger text for labels */
+            margin-right: 8px;
+        }
+        .activity-poster-right {
+            flex: 1;
+            min-width: 350px;
+            max-width: 450px; /* Adjusted max width for poster */
+            text-align: center;
+        }
+        .activity-poster-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            border: 2px solid var(--accent-blue-main);
+        }
+        .activity-image-container {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .activity-image {
+            max-width: 90%; /* Slightly smaller for better fit */
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            border: 2px solid var(--accent-blue-main);
+        }
+        .activity-feedback-list {
+            list-style: decimal;
+            margin-left: 25px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .activity-feedback-list li {
+            margin-bottom: 8px;
+            font-size: 1em;
+            color: var(--primary-medium-text);
+        }
+        .activity-feedback-list ol {
+            list-style: lower-alpha;
+            margin-left: 25px;
+            margin-top: 8px;
+        }
+        .activity-feedback-list ol li {
+            margin-bottom: 5px;
+        }
+        /* New style for the button next to h3 */
+        .h3-with-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px; /* Space between title and button */
+            margin-bottom: 25px; /* Adjust margin as needed */
+        }
+        .h3-with-button h3 {
+            margin: 0; /* Remove default h3 margin when in flex container */
+            border-bottom: none; /* Remove bottom border from h3 */
+            padding-bottom: 0; /* Remove padding from h3 */
+            color: var(--primary-dark-text); /* Match other h3s */
+            font-size: 2em; /* Match other h3s */
+        }
+        .action-button {
+            background-color: var(--accent-blue-main); /* Blue button */
+            color: var(--bg-white);
+            padding: 10px 18px; /* Larger padding */
+            border-radius: 8px; /* More rounded */
+            text-decoration: none;
+            font-size: 1em; /* Larger font */
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+            white-space: nowrap; /* Prevent button text from wrapping */
+        }
+        .action-button:hover {
+            background-color: #3a79e0; /* Darker blue on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+        }
+        /* New style for invitation box */
+        .invitation-box {
+            background-color: var(--accent-blue-light); /* Light blue background */
+            border: 2px solid var(--accent-blue-main); /* Blue border */
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .invitation-box p {
+            color: var(--primary-dark-text);
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 5px;
+        }
+        .invitation-box p:last-child {
+            margin-bottom: 0;
+        }
+        /* Footer style */
+        .page-footer {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 0.85em;
+            color: var(--primary-medium-text);
+        }
+    </style>
+    <!-- 引入 Tone.js 函式庫 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
+</head>
+<body>
+    <div id="sidebar">
+        <ul>
+            <li><a href="#awards" class="sidebar-link active">頒獎</a></li>
+            <li><a href="#chairman-report" class="sidebar-link">主席報告</a></li>
+            <li><a href="#last-meeting-followup" class="sidebar-link">上次會議追蹤</a></li>
+            <li>
+                <a href="#report-discussion" class="sidebar-link">報告及討論事項</a>
+                <ul>
+                    <li>
+                        <a href="#teaching-center-main" class="sidebar-link sub-link">教學中心</a>
+                        <ul>
+                            <li><a href="#narrative-medicine-analysis" class="sidebar-link sub-link">敘事醫學競賽成果分析</a></li>
+                            <li><a href="https://qpig0218.github.io/DigitalCapability/" target="_blank" class="sidebar-link sub-link">數位賦能計畫整合藍圖</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#medical-staff-training-main" class="sidebar-link sub-link">醫事人員訓練組</a>
+                        <ul>
+                            <li><a href="#medical-staff-survey" class="sidebar-link sub-link">114年院內臨培問卷分析</a></li>
+                            <li><a href="#hamaxing-ebook" class="sidebar-link sub-link">哈瑪星電子書試用心得</a></li>
+                            <li><a href="#pharmacy-lifestyle-medicine" class="sidebar-link sub-link">藥事訓練計畫融入生活型態醫學</a></li>
+                            <li><a href="#pharmacy-osce-revision" class="sidebar-link sub-link">藥事OSCE考官認證要點修訂</a></li>
+                            <li><a href="#activity-results" class="sidebar-link sub-link">活動成果</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#teacher-development" class="sidebar-link sub-link">教師培育中心</a></li>
+                    <li><a href="#resident-training" class="sidebar-link sub-link">住院醫師訓練組</a></li>
+                    <li><a href="#clinical-skills" class="sidebar-link sub-link">臨床技能中心</a></li>
+                    <li><a href="#thesis-awards" class="sidebar-link sub-link">論文發表獎勵</a></li>
+                </ul>
+            </li>
+            <li><a href="#ad-hoc-motion" class="sidebar-link">臨時動議</a></li>
+            <li><a href="#chairman-conclusion" class="sidebar-link">主席結語</a></li>
+        </ul>
+    </div>
+
+    <div id="content-area">
+        <div id="awards" class="page-content active">
+            <p>此處將放置頒獎相關報告資料。</p>
+        </div>
+
+        <div id="chairman-report" class="page-content">
+            <h2 style="font-size: 3em; color: var(--primary-dark-text);">主席報告</h2>
+        </div>
+
+        <div id="last-meeting-followup" class="page-content">
+            <h2 style="font-size: 3em; color: var(--primary-dark-text);">上次會議追蹤 (略)</h2>
+        </div>
+
+        <div id="report-discussion" class="page-content">
+            <p>此頁面為「報告及討論事項」的總覽，請點擊左側子頁籤以查看詳細報告。</p>
+            <p>此處將放置報告及討論事項總覽相關資料。</p>
+        </div>
+
+        <div id="teaching-center-main" class="page-content">
+            <h2>教學中心</h2>
+            <p>此處為教學中心的總覽頁面，請點擊左側子頁籤查看詳細報告。</p>
+        </div>
+
+        <!-- 新增的教學中心子頁籤內容 -->
+        <div id="narrative-medicine-analysis" class="page-content">
+            <h2>敘事醫學競賽成果分析</h2>
+            <p style="text-align: center; font-size: 1.2em; color: var(--primary-dark-text);">報告人：藥劑部 蘇慧真部長</p>
+        </div>
+
+        <!-- 數位賦能計畫整合藍圖頁籤，點擊直接跳轉外部連結 -->
+        <div id="digital-empowerment-blueprint" class="page-content">
+            <h2>數位賦能計畫整合藍圖</h2>
+            <p style="text-align: center; font-size: 1.2em; color: var(--primary-dark-text);">報告人：教學中心 廖家德副主任</p>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://qpig0218.github.io/DigitalCapability/" target="_blank" class="action-button">前往報告資料連結</a>
+            </div>
+            <p style="text-align: center; margin-top: 20px; color: var(--primary-medium-text);">點擊上方按鈕可查看數位賦能計畫整合藍圖的詳細報告。</p>
+        </div>
+        <!-- 教學中心子頁籤內容結束 -->
+
+        <!-- 醫事人員訓練組主頁面，可作為總覽或留空 -->
+        <div id="medical-staff-training-main" class="page-content">
+            <h2>醫事人員訓練組</h2>
+            <p>此處為醫事人員訓練組的總覽頁面，請點擊左側子頁籤查看詳細報告。</p>
+        </div>
+
+        <!-- 醫事人員訓練組子頁籤內容 -->
+        <div id="medical-staff-survey" class="page-content">
+            <h2>114年院內臨培問卷分析</h2>
+            <div class="medical-staff-report-section">
+                <div class="h3-with-button">
+                    <h3>問卷質性分析</h3>
+                    <a href="#" class="action-button">問卷量性分析</a>
+                </div>
+                <h4>教師 (81位回覆)</h4>
+                <div class="feedback-summary">
+                    <div class="feedback-category">
+                        <h4>教學津貼獎勵</h4>
+                        <p>教師普遍反映津貼不足與發放不均，建議擴大獎勵制度。</p>
+                    </div>
+                    <div class="feedback-category">
+                        <h4>臨床與課程時間配合</h4>
+                        <p>教學與臨床業務衝突，排班與教學安排需更加給予支持。</p>
+                    </div>
+                    <div class="feedback-category">
+                        <h4>教學軟硬體設備不足、不便</h4>
+                        <p>多數教師認為系統操作不便、設備不足或App體驗差，浪費時間且影響教學動力。建議整合平台介面並簡化填寫流程，提升使用友善度。</p>
+                    </div>
+                    <div class="feedback-category">
+                        <h4>盼提升教學技巧</h4>
+                        <p>指出自己教學中仍有技巧不足、表達不清、或無法有效引導學員的情形，顯示需強化臨床教師的教學設計與回饋技巧訓練，提升教學品質與互動效果。</p>
+                    </div>
+                    <div class="feedback-category">
+                        <h4>學員素質</h4>
+                        <p>學員臨床能力與態度落差大，建議設計入職銜接訓練。</p>
+                    </div>
+                    <div class="feedback-category">
+                        <h4>肯定與支持</h4>
+                        <p>教師正向肯定制度與資源，顯示推動具成效。</p>
+                    </div>
+                </div>
+
+                <h4>受訓人員 (26位回覆)</h4>
+                <div class="feedback-summary">
+                    <div class="feedback-category">
+                        <h4>課程與時間安排</h4>
+                        <p>課程內容設計具實務性且多數學員獲得正面學習經驗，但回饋指出課程安排時間過於緊湊，壓力較大。建議訓練時數可保有彈性，並搭配數位資源提升學習效率。</p>
+                    </div>
+                    <div class="feedback-category">
+                        <h4>師資表現</h4>
+                        <p>學員高度肯定教學態度與教學能力，少數反映需改善情緒管理。建議加強師資情緒與教學技巧訓練，並落實教學回饋機制。</p>
+                    </div>
+                    <div class="feedback-category">
+                        <h4>整體印象</h4>
+                        <p>對醫院整體制度與氛圍多表肯定。</p>
+                    </div>
+                    <div class="feedback-category">
+                        <h4>資源支持</h4>
+                        <p>反映人力不足與臨床壓力壓縮學習機會，建議提升教學排班彈性與臨床協助人力。</p>
+                    </div>
+                    <div class="feedback-category">
+                        <h4>全人照護/跨領域在學員回饋中受到肯定，建議在開訓前設計全人照護案例，引導學員建構整體全人訓練計畫概念。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="hamaxing-ebook" class="page-content">
+            <h2>哈瑪星電子書試用心得分析</h2>
+            <div class="medical-staff-report-section">
+                <div class="pros-cons-container">
+                    <div class="pros-section">
+                        <div class="icon-overlay">💡</div> <!-- Lightbulb icon -->
+                        <h4>優點</h4>
+                        <ul>
+                            <li>介面直覺：拖曳式操作，標示清楚，容易上手。</li>
+                            <li>多媒體互動豐富：支援音效、VR、360度圖像、影片與互動元件。</li>
+                            <li>素材整合彈性高：可匯入PPT/PDF製作教材，並可輸出學員學習歷程記錄。</li>
+                            <li>具教學潛力：提升學生學習動機，可應用於衛教教材。</li>
+                        </ul>
+                    </div>
+                    <div class="cons-section">
+                        <div class="icon-overlay">❓</div> <!-- Question mark icon -->
+                        <h4>缺點</h4>
+                        <ul>
+                            <li>介面老舊：模板設計過時，輸出格式受限。</li>
+                            <li>上手不易：教學影片不足以支援操作需求。</li>
+                            <li>製作耗時：教師難以投入長時間編輯。</li>
+                            <li>兒童導向偏強：成人學習接受度不高。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="suggestion-box">
+                    <h4>綜合建議</h4>
+                    <ul>
+                        <li>建議提供實體操作教學與技術支援窗口。</li>
+                        <li>配置專人協助製作，各職類教師專注內容設計。</li>
+                        <li>提供客製模板模組，簡化建置流程。</li>
+                        <li>如考慮購置，應比較其他廠商並釐清授權與費用。</li>
+                    </ul>
+                    <p style="text-align: center; font-weight: bold; color: var(--danger-red); margin-top: 15px;">暫不建議立即採購</p>
+                </div>
+                <div class="invitation-box">
+                    <p style="font-weight: bold; color: var(--primary-dark-text);">邀請林口長庚劉珮琪護理師</p>
+                    <p style="font-weight: bold; color: var(--primary-dark-text);">8月15日(五)下午 2:30 - 3:30</p>
+                    <p style="font-weight: bold; color: var(--primary-dark-text);">分享「3D Vista軟體和Flip PDF Plus Pro在教學中的應用」</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="pharmacy-lifestyle-medicine" class="page-content">
+            <h2>藥事訓練計畫融入生活型態醫學</h2>
+            <div class="action-plan-section">
+                <h3>藥學實習生</h3>
+                <div class="plan-do-check-container">
+                    <div class="plan-do-check-item">
+                        <h4>Plan</h4>
+                        <ul>
+                            <li>邀請蔡孟修主任演講：生活型態醫學介紹。</li>
+                            <li>7/29於藥劑部演講，同時錄製影音課程，請蔡主任出5題選擇題 (連同影片置於電子學習歷程)。</li>
+                            <li>實習生於報到後一個月內完成測驗 (總導師負責追蹤)。</li>
+                        </ul>
+                    </div>
+                    <div class="plan-do-check-item">
+                        <h4>Do</h4>
+                        <ul>
+                            <li>於「溝通技巧及藥物諮詢專題」加入含生活型態問題的諮詢案例。</li>
+                            <li>從「糖尿病運動指導與諮詢」OSCE影片的病人疑問，請學員完成預計跟病人衛教的項目與內容，需包含生活型態支柱。</li>
+                            <li>於電子學習歷程增列問答題，讓學員填寫跟病人衛教的項目與內容，需包含生活型態支柱。</li>
+                            <li>於「藥師說藥」的民眾衛教，加入對應生活型態醫學支柱。</li>
+                            <li>請負責的藥物諮詢藥師在指導實習生報告時，加入對應主題的生活型態醫學支柱，如健康飲食、規律運動、充足睡眠、壓力管理、避免危害性物質和正向社會連結。</li>
+                        </ul>
+                    </div>
+                    <div class="plan-do-check-item">
+                        <h4>Check</h4>
+                        <ul>
+                            <li>請負責協助藥師說藥的臨床藥師於收集檔案時進行確認。</li>
+                            <li>修訂「藥劑部跨領域團隊合作照護訓練辦法」。</li>
+                            <li>請每月負責「全人照護跨領域教學討論會」指導的臨床組教師，於Brief時指導學生就本次選定案例，討論如何將六大支柱作為衛教病人的內容。</li>
+                            <li>請當次負責指導的臨床組教師，於Debrief時確認學生回饋時，有寫如何將六大支柱作為衛教病人的內容。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-plan-section">
+                <h3>PGY藥師</h3>
+                <div class="plan-do-check-container">
+                    <div class="plan-do-check-item">
+                        <h4>Plan</h4>
+                        <ul>
+                            <li>邀請蔡孟修主任演講：生活型態醫學介紹。</li>
+                            <li>7/29於藥劑部演講，同時錄製影音課程，請蔡主任出5題選擇題 (連同影片置於電子學習歷程)。</li>
+                            <li>PGY於到職三個月內完成(於「試用期評估單」增列項目)。</li>
+                        </ul>
+                    </div>
+                    <div class="plan-do-check-item">
+                        <h4>Do</h4>
+                        <ul>
+                            <li>對門診或準備出院病人的衛教，加入對應生活型態醫學支柱。</li>
+                            <li>指導PGY「藥物諮詢」的藥師，於實作中引導學員思考如何建議病人改善飲食、運動或睡眠等生活型態？如：長期依賴BZD、服用降壓藥但飲食重鹹、COPD合併吸菸等案例，訓練PGY運用諮詢技巧了解病人生活習慣，並進行基本衛教或協助轉介。</li>
+                            <li>於藥劑部全人照護教育紀錄表 (藥品諮詢)增列六大支柱可複選。</li>
+                        </ul>
+                    </div>
+                    <div class="plan-do-check-item">
+                        <h4>Check</h4>
+                        <ul>
+                            <li>修訂「藥劑部跨領域團隊合作照護訓練辦法」。</li>
+                            <li>請當次負責指導的臨床組教師，於Brief時指導學生就本次選定案例，討論如何將六大支柱作為衛教病人的內容。</li>
+                            <li>請當次負責指導的臨床組教師，於Debrief時確認學生回饋時，有寫如何將六大支柱作為衛教病人的內容。</li>
+                            <li>修訂「臨床照護與團隊合作實務課程」。</li>
+                            <li>於訓練期間，融入生活型態失衡導致疾病惡化的情境（如糖尿病合併夜班工作失眠、高齡病人長期臥床無活動），讓學員練習如何在建議中提出非藥物介入計畫（如：改善作息、鼓勵簡單活動）並記錄於SOAP中。</li>
+                            <li>指導教師檢視學員於SOAP有寫如何納入六大支柱作為非藥物建議的一部分。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="pharmacy-osce-revision" class="page-content">
+            <h2>修訂院內「藥師臨床技能測驗考官認證要點」</h2>
+            <div class="osce-revision-section">
+                <div class="osce-revision-content">
+                    <p>修訂要點係依台灣聯技學會展延規範辦理，以統一考官認知與作業標準。</p>
+                    <p>認證有效期限內，具以下任一資格者得申請展延：</p>
+                    <div class="osce-revision-table-wrapper">
+                        <table class="osce-revision-table">
+                            <thead>
+                                <tr>
+                                    <th>本院規定</th>
+                                    <th>聯技學會要求</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>(1) 醫院藥師OSCE測驗並擔任考官評分累計2梯次以上(含)。</td>
+                                    <td>(1) 擔任教學醫院藥師臨床技能測驗OSCE考官評分累計2梯次(含)以上者。</td>
+                                </tr>
+                                <tr>
+                                    <td>(2) 考官一致性工作坊演練評分2小時以上.</td>
+                                    <td>(2) 以影帶演練評分4小時(含)以上者.</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>(3) 最近3年曾擔任教學醫院藥師OSCE測驗之試務負責者.</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>(4) 擔任OSCE考官培訓課程講師累計達4小時(含)以上者.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style="margin-top: 20px;">應接受至少6小時OSCE和臨床技能相關的教育訓練課程，唯OSCE相關課程需至少4小時，其中2小時為本院主辦。</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="activity-results" class="page-content">
+            <h2>活動成果：5/24(六)跨科整合心臟照護研討會</h2>
+            <div class="activity-results-section">
+                <div class="activity-summary-card">
+                    <h4>「藥師、心腎、心臟之協作心篇」</h4>
+                    <div class="activity-poster-container">
+                        <!-- 活動議程海報圖片 -->
+                        <img src="https://raw.githubusercontent.com/ling3567/9002report/main/images/114524%E6%B5%B7%E5%B1%B1.png" alt="活動議程海報" class="activity-poster-image">
+                    </div>
+                </div>
+
+                <h4 style="margin-top: 30px;">活動成效總結</h4>
+                <div class="activity-summary-card">
+                    <div class="activity-image-container">
+                        <!-- 活動合照圖片 -->
+                        <img src="https://raw.githubusercontent.com/ling3567/9002report/refs/heads/main/images/1140524%E7%85%A7%E7%89%87.png" alt="活動合照" class="activity-image">
+                    </div>
+                    <ul class="activity-feedback-list">
+                        <li>參加人數：57位 (實體17位，視訊40位)</li>
+                        <li>整體、對講師、對課程內容的平均滿意度均為100%</li>
+                        <li>質性回饋摘要：
+                            <ol>
+                                <li>課程內容豐富、安排得宜，整體流程順暢，讓人受益良多。</li>
+                                <li>講師專業且熱忱，從不同角度帶來深刻且實用的知識分享。</li>
+                                <li>即使為視訊課程，仍能清楚吸收內容，感謝主辦單位用心安排，與提供吸收新知的機會。</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 醫事人員訓練組子頁籤內容結束 -->
+
+        <div id="teacher-development" class="page-content">
+            <div class="evaluation-report">
+                <h2>114年度 院級優良教師評選進度報告</h2>
+                
+                <div class="evaluation-row">
+                    <div class="group-label">主治醫師組</div>
+                    <div class="horizontal-steps">
+                        <div class="step-card first-step">
+                            <div class="step-icon">&#x1F4C4;</div> <!-- 文件圖標 -->
+                            <div class="step-date-top">6-7月</div>
+                            <div class="step-title">完成第一階段評分</div>
+                            <div class="step-detail">彙整統計、全院VS教學績效評估</div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-icon">&#x1F310;</div> <!-- 地球圖標 -->
+                            <div class="step-date-top">7月底-8月中</div>
+                            <div class="step-title">進行第二階段評分</div>
+                            <div class="step-detail">科部主管、CFD委員評分</div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-icon">&#x1F3C6;</div> <!-- 獎盃圖標 -->
+                            <div class="step-date-top">9月</div>
+                            <div class="step-title">公佈當選名單、表揚</div>
+                            <div class="step-detail">醫教會、醫務會議</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="separator-line"></div> <!-- 分隔線 -->
+
+                <div class="evaluation-row">
+                    <div class="group-label">住院醫師組</div>
+                    <div class="horizontal-steps">
+                        <div class="step-card first-step">
+                            <div class="step-icon">&#x1F4C4;</div> <!-- 文件圖標 -->
+                            <div class="step-date-top">6-7月</div>
+                            <div class="step-title">進行第一階段評分</div>
+                            <div class="step-detail">科部提名院級評選</div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-icon">&#x1F310;</div> <!-- 地球圖標 -->
+                            <div class="step-date-top">8月中</div>
+                            <div class="step-title">進行第二階段評分</div>
+                            <div class="step-detail">現場教學績效報告</div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-icon">&#x1F3C6;</div> <!-- 獎盃圖標 -->
+                            <div class="step-date-top">9月</div>
+                            <div class="step-title">公佈當選名單、表揚</div>
+                            <div class="step-detail">醫教會、醫務會議</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="resident-training" class="page-content">
+            <div class="ccc-cbme-report">
+                <h2>CBME執行現況</h2>
+
+                <h3>CBME執行現況 - 醫師 (I)</h3>
+                <div class="summary-boxes">
+                    <div class="summary-box">
+                        <h3>已建立</h3>
+                        <div class="count">13</div>
+                        <div class="details">內科部、外科部、婦產部、急診醫學部…</div>
+                    </div>
+                    <div class="summary-box">
+                        <h3>尚未建立 (規劃中)</h3>
+                        <div class="count">10</div>
+                        <div class="details">兒科部…、泌尿外科、復健部、整形外科、精神醫學部、中醫部、解剖病理科、骨科部、眼科部、皮膚科</div>
+                    </div>
+                    <div class="summary-box">
+                        <h3>無規劃</h3>
+                        <div class="count">1</div>
+                        <div class="details">職業醫學科 (待學會公告配合)</div>
+                    </div>
+                </div>
+
+                <h3 class="section-title">CBME執行現況 - 醫師 (II)</h3>
+                <div class="cbme-table-container">
+                    <table class="cbme-table">
+                        <thead>
+                            <tr>
+                                <th>科部</th>
+                                <th>CCC推動執行者</th>
+                                <th colspan="2">CCC制度建立</th>
+                                <th colspan="3">CCC評核月</th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th>有</th>
+                                <th>無</th>
+                                <th>書面</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>內科部</td><td>甘偉志主任</td><td class="star-icon">★</td><td></td><td>V</td><td></td><td></td></tr>
+                            <tr><td>外科部</td><td>陳志偉主任</td><td class="star-icon">★</td><td></td><td>V</td><td>6、12</td><td></td></tr>
+                            <tr><td>神經外科</td><td>陳志偉主任</td><td class="star-icon">★</td><td></td><td>V</td><td>3、6、9、12</td><td></td></tr>
+                            <tr><td>婦產部</td><td>康介乙主任</td><td class="star-icon">★</td><td></td><td>V</td><td>7、12</td><td></td></tr>
+                            <tr><td>神經內科</td><td>葉珀秀醫師</td><td class="star-icon">★</td><td></td><td>V</td><td></td><td></td></tr>
+                            <tr><td>家庭醫學部</td><td>蔡岡廷部長</td><td class="star-icon">★</td><td></td><td>V</td><td>1、7</td><td></td></tr>
+                            <tr><td>放射診斷科</td><td>郭禹廷部長</td><td class="star-icon">★</td><td></td><td>V</td><td>6, 12</td><td></td></tr>
+                            <tr><td>放射腫瘤部</td><td>何聖佑部長</td><td class="star-icon">★</td><td></td><td>V</td><td>7、12</td><td></td></tr>
+                            <tr><td>核子醫學科</td><td>李將瑄主任</td><td class="star-icon">★</td><td></td><td>V</td><td>1、7</td><td></td></tr>
+                            <tr><td>牙醫部</td><td>陳冠良主任</td><td class="star-icon">★</td><td></td><td>V</td><td>7</td><td></td></tr>
+                            <tr><td>耳鼻喉部</td><td>張世倫部長</td><td class="star-icon">★</td><td></td><td>x</td><td>6、12</td><td></td></tr>
+                            <tr><td>急診醫學部</td><td>王嘉地主任</td><td class="star-icon">★</td><td></td><td>待補件</td><td>7~8/評核</td><td></td></tr>
+                            <tr><td>麻醉部</td><td>褚錦承副部長</td><td class="star-icon">★</td><td></td><td>V</td><td>6、12</td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="section-title">CBME執行現況 - 醫師 (III)</h3>
+                <div class="cbme-table-container">
+                    <table class="cbme-table">
+                        <thead>
+                            <tr>
+                                <th>科部</th>
+                                <th>CCC推動執行者</th>
+                                <th colspan="2">CCC制度建立</th>
+                                <th colspan="3">CCC評核月</th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th>有</th>
+                                <th>無</th>
+                                <th>書面</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>兒科部</td><td>周琪部長</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td></td><td></td></tr>
+                            <tr><td>泌尿外科</td><td>李高漢醫師</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td>1、7</td><td></td></tr>
+                            <tr><td>復健部</td><td>王鈺霖部長</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td></td><td></td></tr>
+                            <tr><td>整形外科</td><td>葉敬淳醫師</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td>6、12</td><td></td></tr>
+                            <tr><td>精神醫學部</td><td>張志誠主任</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td>1、7</td><td></td></tr>
+                            <tr><td>中醫部</td><td>王瑜婷主任</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td>配合學會(5、11)</td><td></td></tr>
+                            <!-- 刪除臨床病理科資料 -->
+                            <tr><td>解剖病理科</td><td>廖以莊醫師</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td>2026/12之後(1、7)</td><td></td></tr>
+                            <tr><td>職業醫學科</td><td>郭婉吟主任</td><td></td><td class="dot-icon">●</td><td>x</td><td>配合學會</td><td></td></tr>
+                            <tr><td>骨科部</td><td>林昇輝主任</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td></td><td></td></tr>
+                            <tr><td>眼科部</td><td>郭淑純部長</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td>8月之後再回覆</td><td></td></tr>
+                            <tr><td>皮膚科</td><td>賴豐傑主任</td><td></td><td class="dot-icon">●</td><td>擬定中</td><td></td><td><td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="section-title">CBME執行現況 - 醫事職類</h3>
+                <div class="cbme-table-container">
+                    <table class="cbme-table">
+                        <thead>
+                            <tr>
+                                <th>醫事職類</th>
+                                <th>Milestones／EPAs導入並應用</th>
+                                <th>學會／全聯會公版建置</th>
+                                <th>CCC 委員會成立並運行</th>
+                                <th>備註</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>藥事</td><td class="check-icon">✓</td><td class="check-icon">✓</td><td class="check-icon">✓</td><td></td></tr>
+                            <tr><td>醫事放射</td><td class="check-icon">✓</td><td class="check-icon">✓</td><td class="check-icon">✓</td><td></td></tr>
+                            <tr><td>醫事檢驗</td><td class="check-icon">✓</td><td class="check-icon">✓</td><td class="check-icon">✓</td><td></td></tr>
+                            <tr><td>護理</td><td class="check-icon">✓</td><td class="cross-icon">✗</td><td class="check-icon">✓</td><td></td></tr>
+                            <tr><td>營養</td><td class="check-icon">✓</td><td class="check-icon">✓</td><td class="check-icon">✓</td><td></td></tr>
+                            <tr><td>呼吸治療</td><td style="text-align: center;">△</td><td class="check-icon">✓</td><td class="cross-icon">✗</td><td>本院僅導入 1 項技術</td></tr>
+                            <tr><td>聽力</td><td class="check-icon">✓</td><td class="check-icon">✓</td><td class="check-icon">✓</td><td></td></tr>
+                            <tr><td>物理治療</td><td class="check-icon">✓</td><td class="check-icon">✓</td><td class="check-icon">✓</td><td></td></tr>
+                            <tr><td>職能治療</td><td class="check-icon">✓</td><td class="check-icon">✓</td><td class="check-icon">✓</td><td></td></tr>
+                            <tr><td>臨床心理</td><td class="cross-icon">✗</td><td>✓<span class="note">(5月甫完成)</span></td><td class="check-icon">✓</td><td>7 月將開始試行</td></tr>
+                            <tr><td>語言治療</td><td class="check-icon">✓</td><td class="check-icon">✓</td><td class="check-icon">✓</td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="thesis-awards" class="page-content">
+            <p>此處將放置論文發表獎勵相關報告資料。</p>
+        </div>
+
+        <div id="ad-hoc-motion" class="page-content">
+            <h2 style="font-size: 3em; color: var(--primary-dark-text);">臨時動議</h2>
+        </div>
+
+        <div id="chairman-conclusion" class="page-content">
+            <h2 style="font-size: 3em; color: var(--primary-dark-text);">主席結語</h2>
+        </div>
+    </div>
+
+    <script>
+        // 將 let 改為 var 以避免重複宣告錯誤
+        var awardsSynth = null;
+        var awardsPart = null;
+
+        // 初始化 Tone.js 音頻上下文和合成器
+        async function initializeAwardsAudio() {
+            if (!awardsSynth) {
+                // Tone.start() 必須在用戶互動後調用，以避免瀏覽器自動播放策略的限制
+                // 在這裡先不自動啟動，等到點擊頒獎頁籤時再啟動
+                awardsSynth = new Tone.PolySynth(Tone.Synth, {
+                    oscillator: {
+                        type: "sine" // 使用正弦波形
+                    },
+                    envelope: {
+                        attack: 0.005,
+                        decay: 0.1,
+                        sustain: 0.3,
+                        release: 1
+                    }
+                }).toDestination(); // 連接到揚聲器
+
+                // 定義一個簡單的號角聲旋律作為序列
+                const fanfareNotes = [
+                    ["C4", "0"],     // C4音，在0秒開始
+                    ["E4", "0.25"],  // E4音，在0.25秒開始
+                    ["G4", "0.5"],   // G4音，在0.5秒開始
+                    ["C5", "0.75"]   // C5音，在0.75秒開始
+                ];
+
+                // 創建一個 Tone.Part 來安排音符播放
+                awardsPart = new Tone.Part((time, note) => {
+                    awardsSynth.triggerAttackRelease(note, "8n", time); // 播放音符，持續八分音符時長
+                }, fanfareNotes).start(0); // 從0秒開始播放
+
+                Tone.Transport.loop = false; // 不循環播放
+                Tone.Transport.bpm.value = 120; // 設定每分鐘120拍
+            }
+        }
+
+        // 播放號角聲
+        async function playAwardsFanfare() {
+            // 確保音頻上下文已啟動 (在首次用戶互動後)
+            await Tone.start(); 
+            if (awardsSynth && awardsPart) {
+                Tone.Transport.stop(); // 停止任何先前的播放
+                Tone.Transport.cancel(); // 清除所有已安排的事件
+                awardsPart.start(0); // 從頭開始播放樂段
+                Tone.Transport.start(); // 啟動 Tone.js 的傳輸器
+
+                // 在樂段結束後停止傳輸器和釋放音符，避免持續發聲
+                Tone.Transport.scheduleOnce(() => {
+                    Tone.Transport.stop();
+                    awardsSynth.releaseAll();
+                }, awardsPart.duration); // 在樂段持續時間後停止
+            }
+        }
+
+        // 停止號角聲
+        function stopAwardsFanfare() {
+            if (awardsSynth) {
+                Tone.Transport.stop(); // 停止傳輸器
+                Tone.Transport.cancel(); // 清除所有已安排的事件
+                awardsSynth.releaseAll(); // 釋放所有正在發聲的音符
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebarLinks = document.querySelectorAll('.sidebar-link');
+            const pageContents = document.querySelectorAll('.page-content');
+
+            // 在頁面加載時初始化音頻相關組件
+            initializeAwardsAudio();
+
+            // 根據URL的hash值設定初始顯示頁面
+            function setInitialPage() {
+                const hash = window.location.hash;
+                if (hash) {
+                    const targetPageId = hash.substring(1); // 移除 '#'
+                    showPage(targetPageId);
+                } else {
+                    // 如果沒有hash，預設顯示第一個頁籤 (頒獎)
+                    showPage('awards');
+                }
+            }
+
+            function showPage(id) {
+                pageContents.forEach(page => {
+                    page.classList.remove('active');
+                });
+                sidebarLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                const targetPage = document.getElementById(id);
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                    // 找到對應的側邊欄連結並加上active class
+                    const activeLink = document.querySelector(`.sidebar-link[href="#${id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                        // 如果是子頁籤，也要讓父頁籤 active (報告及討論事項)
+                        let parentUl = activeLink.closest('ul');
+                        while (parentUl && parentUl.parentElement && parentUl.parentElement.tagName === 'LI') {
+                            const parentLink = parentUl.parentElement.querySelector('.sidebar-link:not(.sub-link)');
+                            if (parentLink) {
+                                parentLink.classList.add('active');
+                            }
+                            parentUl = parentUl.parentElement.parentElement; // 繼續往上找
+                        }
+                    }
+                }
+
+                // 音頻播放邏輯
+                if (id === 'awards') {
+                    playAwardsFanfare();
+                } else {
+                    stopAwardsFanfare();
+                }
+            }
+
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault(); // 阻止連結的預設行為 (跳轉)
+                    const targetId = this.getAttribute('href').substring(1); // 取得連結的hash值 (不含#)
+                    history.pushState(null, '', `#${targetId}`); // 更新URL hash
+                    showPage(targetId);
+                });
+            });
+
+            // 監聽URL hash變化，支援瀏覽器的上一頁/下一頁
+            window.addEventListener('hashchange', function() {
+                const hash = window.location.hash;
+                if (hash) {
+                    showPage(hash.substring(1));
+                }
+            });
+
+            // 頁面載入時設定初始頁面
+            setInitialPage();
+        });
+    </script>
+</body>
+</html>
