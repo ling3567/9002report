@@ -1159,6 +1159,7 @@
         #narrative-award.humanities-section {
             background-color: #f8f9f9;
             font-family: 'Noto Sans TC', sans-serif;
+            overflow-x: hidden;
         }
         #narrative-award .subtitle {
             font-size: 1.6em;
@@ -1169,17 +1170,22 @@
         }
         .award-card-container {
             display: flex;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
             gap: 20px;
             justify-content: center;
             margin-bottom: 30px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .award-card {
             background-color: #ffffff;
             border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             padding: 20px;
-            flex: 0 0 280px;
+            flex: 1 1 auto;
+            min-width: 250px;
+            width: fit-content;
             text-align: center;
         }
         .award-card .medal {
