@@ -1212,17 +1212,28 @@
             margin: 0;
             text-align: left;
         }
+        .second-place-list {
+            text-align: center;
+        }
         .award-card ul li {
             margin-bottom: 6px;
         }
-        .third-place-list {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+        .third-place-grid {
+            display: flex;
             gap: 10px;
             list-style: none;
             padding: 0;
             margin: 0;
             text-align: center;
+            width: 100%;
+            justify-content: space-between;
+        }
+        .third-place-item {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            padding: 12px 15px;
+            flex: 1 1 0;
         }
         .honorable-section {
             margin-top: 20px;
@@ -1365,11 +1376,11 @@
                 <div class="honorable-section">
                     <h4>佳作</h4>
                     <div class="honorable-list">
-                        <div class="honorable-card"><span class="work work-green">《忙碌中停下腳步，記得溫度》</span><div class="author">方郁涵／9A</div></div>
+                        <div class="honorable-card"><span class="work work-green">《忙碌中停下腳步，記得溫度》</span><div class="author">方郁涵／9A病房</div></div>
                         <div class="honorable-card"><span class="work work-blue">《烈日下的那一口安心》</span><div class="author">李芯儀／健康促進組</div></div>
                         <div class="honorable-card"><span class="work work-red">《靜默中的專注》</span><div class="author">林志遠／藥劑部</div></div>
                         <div class="honorable-card"><span class="work work-green">《靜靜地～陪你走一段》</span><div class="author">黃詠琳／急診醫學部</div></div>
-                        <div class="honorable-card"><span class="work work-blue">《在家也能被療癒，一雙手，撫平病痛，也撫慰人心》</span><div class="author">楊惠君／公共事務室</div></div>
+                        <div class="honorable-card"><span class="work work-blue">《在家也能被療癒，一雙手,<br>撫平病痛，也撫慰人心》</span><div class="author">楊惠君／公共事務室</div></div>
                         <div class="honorable-card"><span class="work work-red">《前輩與新人》</span><div class="author">何承蔚／一般科</div></div>
                     </div>
                 </div>
@@ -1385,25 +1396,25 @@
                     </div>
                     <div class="award-card">
                         <div class="medal">🥈 第二名</div>
-                        <ul>
+                        <ul class="second-place-list">
                             <li><span class="work work-blue">《護理的瞬間–永恆的感動》</span><div class="author">廖麗月／公共事務室</div></li>
                             <li><span class="work work-red">《移動的溫柔–從影像開始的守護》</span><div class="author">黃美蘭／放射診斷科</div></li>
                         </ul>
                     </div>
                     <div class="award-card">
                         <div class="medal">🥉 第三名</div>
-                        <ul class="third-place-list">
-                            <li><span class="work work-green">《重生的祝福》</span><div class="author">顏旻萱／8B病房</div></li>
-                            <li><span class="work work-blue">《一樣的中秋節》</span><div class="author">楊書瑜／復健部</div></li>
-                            <li><span class="work work-red">《被記住的溫柔》</span><div class="author">黃淑芬／藥劑部</div></li>
-                        </ul>
+                        <div class="third-place-grid">
+                            <div class="third-place-item"><span class="work work-green">《重生的祝福》</span><div class="author">顏旻萱／8B病房</div></div>
+                            <div class="third-place-item"><span class="work work-blue">《一樣的中秋節》</span><div class="author">楊書瑜／復健部</div></div>
+                            <div class="third-place-item"><span class="work work-red">《被記住的溫柔》</span><div class="author">黃淑芬／藥劑部</div></div>
+                        </div>
                     </div>
                 </div>
                 <div class="honorable-section">
                     <h4>佳作</h4>
                     <div class="honorable-list">
                         <div class="honorable-card"><span class="work work-green">《友善醫療：從同理開始》</span><div class="author">杜漢祥／品質管理中心</div></div>
-                        <div class="honorable-card"><span class="work work-blue">《兩塊錢的信封袋，跨越時空的念想》</span><div class="author">陳乃菁、蘇婉淳、蔡雅雯／院長室 研究發展組</div></div>
+                        <div class="honorable-card"><span class="work work-blue">《兩塊錢的信封袋，跨越時空的念想》</span><div class="author">陳乃菁、蘇婉淳、蔡雅雯<br>／院長室 研究發展</div></div>
                         <div class="honorable-card"><span class="work work-red">《從沉默裡，「刮」出微光》</span><div class="author">陳璟綺／復健部</div></div>
                         <div class="honorable-card"><span class="work work-green">《有時候，一句話，就能讓人安心》</span><div class="author">黃淑芬／藥劑部</div></div>
                         <div class="honorable-card"><span class="work work-blue">《生命微光～早產兒生命之旅》</span><div class="author">林品吟、李晴玉、陶菁／護理部</div></div>
