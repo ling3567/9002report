@@ -1080,32 +1080,16 @@
         .clinical-team-new {
             background-color: #E8F5E9;
         }
+
         .clinical-team-critical {
             background-color: #FFF3E0;
-        }
-        /* Thesis awards block */
-        #thesis-awards.page-content.active {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .thesis-awards-box {
-            width: 600px; /* Fixed width */
-            margin: 0 auto;
-            display: flex; /* Center content horizontally and vertically */
-            align-items: center;
-            justify-content: center;
-            font-size: 3em; /* Larger text */
-            font-weight: bold;
-            text-align: center;
-            height: 120px; /* Provide height for vertical centering */
-            white-space: nowrap; /* Keep text on a single line */
         }
         /* Footer style */
         .page-footer {
             position: absolute;
             bottom: 20px;
             left: 0;
+main
             width: 100%;
             text-align: center;
             font-size: 0.85em;
@@ -1125,14 +1109,14 @@
             <li class="has-submenu">
                 <a href="#report-discussion" class="sidebar-link">報告及討論事項</a>
                 <ul>
-                    <li>
+                    <li class="has-submenu">
                         <a href="#teaching-center-main" class="sidebar-link sub-link">教學中心</a>
                         <ul>
                             <li><a href="#narrative-medicine-analysis" class="sidebar-link sub-link">醫院敘事醫學系列競賽活動「醫療的瞬間・永恆的感動」<br>成果分析</a></li>
                             <li><a href="#digital-empowerment-blueprint" class="sidebar-link sub-link">數位賦能計畫整合藍圖</a></li>
                         </ul>
                     </li>
-                    <li>
+                    <li class="has-submenu">
                         <a href="#medical-staff-training-main" class="sidebar-link sub-link">醫事人員訓練組</a>
                         <ul>
                             <li><a href="#medical-staff-survey" class="sidebar-link sub-link">114年院內臨培問卷分析</a></li>
@@ -1690,7 +1674,7 @@
         </div>
 
         <div id="thesis-awards" class="page-content">
-            <div class="thesis-awards-box">6月份論文發表相關獎勵申請：？件</div>
+            <p>6月份論文發表相關獎勵申請：？件</p>
         </div>
 
         <div id="ad-hoc-motion" class="page-content">
@@ -1840,7 +1824,7 @@
 
                     // 點擊有子選單的主項目時切換展開狀態
                     const parentLi = this.parentElement;
-                    if (!this.classList.contains('sub-link') && parentLi.classList.contains('has-submenu')) {
+                    if (parentLi.classList.contains('has-submenu')) {
                         parentLi.classList.toggle('open');
                     }
                 });
