@@ -762,6 +762,30 @@
             border-color: #FF9800;
         }
 
+        .intern-plan-table-wrapper {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+        .intern-plan-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        .intern-plan-table th,
+        .intern-plan-table td {
+            padding: 12px;
+            text-align: left;
+        }
+        .intern-plan-table th {
+            background-color: var(--accent-blue-main);
+            color: var(--bg-white);
+            font-weight: bold;
+        }
+        .intern-plan-table tbody tr {
+            background-color: #E8F5E9; /* light green rows */
+            border-bottom: 1px solid var(--border-gray);
+        }
+
         .osce-revision-section {
             margin-top: 50px;
             text-align: left;
@@ -1242,34 +1266,38 @@
             <h2>藥事訓練計畫融入生活型態醫學</h2>
             <div class="action-plan-section pharmacy-intern-section">
                 <h3>藥學實習生</h3>
-                <div class="plan-do-check-container">
-                    <div class="plan-do-check-item">
-                        <h4>Plan</h4>
-                        <ul>
-                            <li>邀請蔡孟修主任演講：生活型態醫學介紹。</li>
-                            <li>7/29於藥劑部演講，同時錄製影音課程，請蔡主任出5題選擇題 (連同影片置於電子學習歷程)。</li>
-                            <li>實習生於報到後一個月內完成測驗 (總導師負責追蹤)。</li>
-                        </ul>
-                    </div>
-                    <div class="plan-do-check-item">
-                        <h4>Do</h4>
-                        <ul>
-                            <li>於「溝通技巧及藥物諮詢專題」加入含生活型態問題的諮詢案例。</li>
-                            <li>從「糖尿病運動指導與諮詢」OSCE影片的病人疑問，請學員完成預計跟病人衛教的項目與內容，需包含生活型態支柱。</li>
-                            <li>於電子學習歷程增列問答題，讓學員填寫跟病人衛教的項目與內容，需包含生活型態支柱。</li>
-                            <li>於「藥師說藥」的民眾衛教，加入對應生活型態醫學支柱。</li>
-                            <li>請負責的藥物諮詢藥師在指導實習生報告時，加入對應主題的生活型態醫學支柱，如健康飲食、規律運動、充足睡眠、壓力管理、避免危害性物質和正向社會連結。</li>
-                        </ul>
-                    </div>
-                    <div class="plan-do-check-item">
-                        <h4>Check</h4>
-                        <ul>
-                            <li>請負責協助藥師說藥的臨床藥師於收集檔案時進行確認。</li>
-                            <li>修訂「藥劑部跨領域團隊合作照護訓練辦法」。</li>
-                            <li>請每月負責「全人照護跨領域教學討論會」指導的臨床組教師，於Brief時指導學生就本次選定案例，討論如何將六大支柱作為衛教病人的內容。</li>
-                            <li>請當次負責指導的臨床組教師，於Debrief時確認學生回饋時，有寫如何將六大支柱作為衛教病人的內容。</li>
-                        </ul>
-                    </div>
+                <div class="intern-plan-table-wrapper">
+                    <table class="intern-plan-table">
+                        <thead>
+                            <tr>
+                                <th>Plan</th>
+                                <th>Do</th>
+                                <th>Check</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>邀請蔡孟修主任演講：生活型態醫學介紹</td>
+                                <td>7/29於藥劑部演講，同時錄製影音課程，請蔡主任出5題選擇題 (連同影片置於電子學習歷程)</td>
+                                <td>實習生於報到後一個月內完成測驗 (總導師負責追蹤)</td>
+                            </tr>
+                            <tr>
+                                <td>於「溝通技巧及藥物諮詢專題」加入含生活型態醫學問題的諮詢案例</td>
+                                <td>從「糖尿病運動指導與諮詢」OSCE影片的病人疑問，請學生完成預計跟病人衛教的項目與內容，需包含生活型態支柱</td>
+                                <td>於電子學習歷程增列問答題，讓學員填寫跟病人衛教的項目與內容，需包含生活型態支柱</td>
+                            </tr>
+                            <tr>
+                                <td>於「藥師說藥」的民眾衛教，加入對應生活型態醫學支柱</td>
+                                <td>請負責的藥物諮詢藥師在指導實習生報告時，加入對應主題的生活型態醫學支柱，如健康飲食、規律運動、充足睡眠、壓力管理、避免危害性物質和正向社會連結</td>
+                                <td>請負責協助藥師說藥的臨床藥師於收集檔案時進行確認</td>
+                            </tr>
+                            <tr>
+                                <td>修訂「藥劑部跨領域團隊合作照護訓練辦法」</td>
+                                <td>請每月負責「全人照護跨領域教學討論會」指導的臨床組教師，於Brief時指導學生就本次選定案例，討論如何將六大支柱作為衛教病人的內容</td>
+                                <td>請當次負責指導的臨床組教師，於Debrief時確認學生回饋時，有寫如何將六大支柱作為衛教病人的內容</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
