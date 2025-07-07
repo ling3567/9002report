@@ -944,6 +944,16 @@
             font-size: 0.85em;
             color: var(--primary-medium-text);
         }
+        /* Style for thesis awards chart */
+        .thesis-awards-chart {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .thesis-awards-chart svg {
+            width: 100%;
+            max-width: 260px;
+            height: auto;
+        }
     </style>
     <!-- 引入 Tone.js 函式庫 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
@@ -1474,7 +1484,19 @@
         </div>
 
         <div id="thesis-awards" class="page-content">
-            <p>此處將放置論文發表獎勵相關報告資料。</p>
+            <h2>論文發表獎勵</h2>
+            <div class="activity-summary-card">
+                <p style="text-align: center; font-size: 1.2em; color: var(--primary-dark-text); font-weight: bold;">
+                    6月份論文發表相關獎勵申請：200件
+                </p>
+                <div class="thesis-awards-chart">
+                    <svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="30" y="40" width="200" height="80" rx="10" fill="#4285F4" />
+                        <text x="130" y="85" text-anchor="middle" fill="white" font-size="36" font-weight="bold">200</text>
+                        <text x="130" y="120" text-anchor="middle" fill="#333" font-size="16">申請件數</text>
+                    </svg>
+                </div>
+            </div>
         </div>
 
         <div id="ad-hoc-motion" class="page-content">
