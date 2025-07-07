@@ -581,6 +581,16 @@
             margin-bottom: 0;
         }
 
+        /* Different color schemes for teacher and trainee feedback */
+        .teacher-feedback .feedback-category {
+            background-color: var(--accent-blue-light);
+            border-color: var(--accent-blue-main);
+        }
+        .trainee-feedback .feedback-category {
+            background-color: #e8f5e9; /* Light green */
+            border-color: var(--success-green);
+        }
+
         .pros-cons-container {
             display: flex;
             gap: 25px;
@@ -1104,7 +1114,7 @@
                     <a href="#" class="action-button">問卷量性分析</a>
                 </div>
                 <h4>教師 (81位回覆)</h4>
-                <div class="feedback-summary">
+                <div class="feedback-summary teacher-feedback">
                     <div class="feedback-category">
                         <h4>教學津貼獎勵</h4>
                         <p>教師普遍反映津貼不足與發放不均，建議擴大獎勵制度。</p>
@@ -1132,7 +1142,7 @@
                 </div>
 
                 <h4>受訓人員 (26位回覆)</h4>
-                <div class="feedback-summary">
+                <div class="feedback-summary trainee-feedback">
                     <div class="feedback-category">
                         <h4>課程與時間安排</h4>
                         <p>課程內容設計具實務性且多數學員獲得正面學習經驗，但回饋指出課程安排時間過於緊湊，壓力較大。建議訓練時數可保有彈性，並搭配數位資源提升學習效率。</p>
