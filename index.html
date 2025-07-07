@@ -699,49 +699,29 @@
             padding-bottom: 10px;
             text-align: center;
         }
+        .plan-do-check-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+        }
         .plan-do-check-container {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
+            overflow-x: auto;
         }
-        .plan-do-check-item {
-            background-color: var(--accent-blue-light); /* Light blue background */
-            border: 1px solid var(--accent-blue-main);
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        .plan-do-check-table th, .plan-do-check-table td {
+            border: 1px solid var(--border-gray);
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
         }
-        .plan-do-check-item h4 {
-            font-size: 1.4em;
-            color: var(--primary-dark-text);
-            margin-top: 0;
-            margin-bottom: 15px;
-            border-bottom: 1px solid var(--border-gray);
-            padding-bottom: 8px;
-            text-align: left; /* Align Plan/Do/Check titles left */
-        }
-        .plan-do-check-item ul {
-            list-style: none; /* Remove bullets */
-            padding: 0;
-            margin: 0;
-        }
-        .plan-do-check-item ul li {
-            margin-bottom: 8px;
-            font-size: 1em;
-            color: var(--primary-medium-text);
-            position: relative;
-            padding-left: 25px; /* Space for custom bullet */
-        }
-        .plan-do-check-item ul li::before {
-            content: '✓'; /* Custom bullet */
-            color: var(--success-green);
+        .plan-do-check-table th {
+            background-color: var(--accent-blue-main);
+            color: var(--bg-white);
             font-weight: bold;
-            position: absolute;
-            left: 0;
-            top: 0;
         }
-        .plan-do-check-item ul li strong {
-            color: var(--accent-blue-main);
+        .plan-do-check-table ul {
+            margin: 0 0 0 20px;
+            padding: 0;
+            list-style: disc;
         }
 
         /* Distinct color schemes for pharmacy intern and PGY pharmacist sections */
@@ -749,17 +729,15 @@
             color: var(--success-green);
             border-bottom-color: var(--success-green);
         }
-        .pharmacy-intern-section .plan-do-check-item {
+        .pharmacy-intern-section .plan-do-check-table td {
             background-color: #E8F5E9; /* light green */
-            border-color: var(--success-green);
         }
         .pgy-pharmacist-section h3 {
             color: #E65100; /* dark orange */
             border-bottom-color: #E65100;
         }
-        .pgy-pharmacist-section .plan-do-check-item {
+        .pgy-pharmacist-section .plan-do-check-table td {
             background-color: #FFF3E0; /* light orange */
-            border-color: #FF9800;
         }
 
         .osce-revision-section {
@@ -1243,66 +1221,86 @@
             <div class="action-plan-section pharmacy-intern-section">
                 <h3>藥學實習生</h3>
                 <div class="plan-do-check-container">
-                    <div class="plan-do-check-item">
-                        <h4>Plan</h4>
-                        <ul>
-                            <li>邀請蔡孟修主任演講：生活型態醫學介紹。</li>
-                            <li>7/29於藥劑部演講，同時錄製影音課程，請蔡主任出5題選擇題 (連同影片置於電子學習歷程)。</li>
-                            <li>實習生於報到後一個月內完成測驗 (總導師負責追蹤)。</li>
-                        </ul>
-                    </div>
-                    <div class="plan-do-check-item">
-                        <h4>Do</h4>
-                        <ul>
-                            <li>於「溝通技巧及藥物諮詢專題」加入含生活型態問題的諮詢案例。</li>
-                            <li>從「糖尿病運動指導與諮詢」OSCE影片的病人疑問，請學員完成預計跟病人衛教的項目與內容，需包含生活型態支柱。</li>
-                            <li>於電子學習歷程增列問答題，讓學員填寫跟病人衛教的項目與內容，需包含生活型態支柱。</li>
-                            <li>於「藥師說藥」的民眾衛教，加入對應生活型態醫學支柱。</li>
-                            <li>請負責的藥物諮詢藥師在指導實習生報告時，加入對應主題的生活型態醫學支柱，如健康飲食、規律運動、充足睡眠、壓力管理、避免危害性物質和正向社會連結。</li>
-                        </ul>
-                    </div>
-                    <div class="plan-do-check-item">
-                        <h4>Check</h4>
-                        <ul>
-                            <li>請負責協助藥師說藥的臨床藥師於收集檔案時進行確認。</li>
-                            <li>修訂「藥劑部跨領域團隊合作照護訓練辦法」。</li>
-                            <li>請每月負責「全人照護跨領域教學討論會」指導的臨床組教師，於Brief時指導學生就本次選定案例，討論如何將六大支柱作為衛教病人的內容。</li>
-                            <li>請當次負責指導的臨床組教師，於Debrief時確認學生回饋時，有寫如何將六大支柱作為衛教病人的內容。</li>
-                        </ul>
-                    </div>
+                    <table class="plan-do-check-table">
+                        <thead>
+                            <tr>
+                                <th>Plan</th>
+                                <th>Do</th>
+                                <th>Check</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <ul>
+                                        <li>邀請蔡孟修主任演講：生活型態醫學介紹。</li>
+                                        <li>7/29於藥劑部演講，同時錄製影音課程，請蔡主任出5題選擇題 (連同影片置於電子學習歷程)。</li>
+                                        <li>實習生於報到後一個月內完成測驗 (總導師負責追蹤)。</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>於「溝通技巧及藥物諮詢專題」加入含生活型態問題的諮詢案例。</li>
+                                        <li>從「糖尿病運動指導與諮詢」OSCE影片的病人疑問，請學員完成預計跟病人衛教的項目與內容，需包含生活型態支柱。</li>
+                                        <li>於電子學習歷程增列問答題，讓學員填寫跟病人衛教的項目與內容，需包含生活型態支柱。</li>
+                                        <li>於「藥師說藥」的民眾衛教，加入對應生活型態醫學支柱。</li>
+                                        <li>請負責的藥物諮詢藥師在指導實習生報告時，加入對應主題的生活型態醫學支柱，如健康飲食、規律運動、充足睡眠、壓力管理、避免危害性物質和正向社會連結。</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>請負責協助藥師說藥的臨床藥師於收集檔案時進行確認。</li>
+                                        <li>修訂「藥劑部跨領域團隊合作照護訓練辦法」。</li>
+                                        <li>請每月負責「全人照護跨領域教學討論會」指導的臨床組教師，於Brief時指導學生就本次選定案例，討論如何將六大支柱作為衛教病人的內容。</li>
+                                        <li>請當次負責指導的臨床組教師，於Debrief時確認學生回饋時，有寫如何將六大支柱作為衛教病人的內容。</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
             <div class="action-plan-section pgy-pharmacist-section">
                 <h3>PGY藥師</h3>
                 <div class="plan-do-check-container">
-                    <div class="plan-do-check-item">
-                        <h4>Plan</h4>
-                        <ul>
-                            <li>邀請蔡孟修主任演講：生活型態醫學介紹。</li>
-                            <li>7/29於藥劑部演講，同時錄製影音課程，請蔡主任出5題選擇題 (連同影片置於電子學習歷程)。</li>
-                            <li>PGY於到職三個月內完成(於「試用期評估單」增列項目)。</li>
-                        </ul>
-                    </div>
-                    <div class="plan-do-check-item">
-                        <h4>Do</h4>
-                        <ul>
-                            <li>對門診或準備出院病人的衛教，加入對應生活型態醫學支柱。</li>
-                            <li>指導PGY「藥物諮詢」的藥師，於實作中引導學員思考如何建議病人改善飲食、運動或睡眠等生活型態？如：長期依賴BZD、服用降壓藥但飲食重鹹、COPD合併吸菸等案例，訓練PGY運用諮詢技巧了解病人生活習慣，並進行基本衛教或協助轉介。</li>
-                            <li>於藥劑部全人照護教育紀錄表 (藥品諮詢)增列六大支柱可複選。</li>
-                        </ul>
-                    </div>
-                    <div class="plan-do-check-item">
-                        <h4>Check</h4>
-                        <ul>
-                            <li>修訂「藥劑部跨領域團隊合作照護訓練辦法」。</li>
-                            <li>請當次負責指導的臨床組教師，於Brief時指導學生就本次選定案例，討論如何將六大支柱作為衛教病人的內容。</li>
-                            <li>請當次負責指導的臨床組教師，於Debrief時確認學生回饋時，有寫如何將六大支柱作為衛教病人的內容。</li>
-                            <li>修訂「臨床照護與團隊合作實務課程」。</li>
-                            <li>於訓練期間，融入生活型態失衡導致疾病惡化的情境（如糖尿病合併夜班工作失眠、高齡病人長期臥床無活動），讓學員練習如何在建議中提出非藥物介入計畫（如：改善作息、鼓勵簡單活動）並記錄於SOAP中。</li>
-                            <li>指導教師檢視學員於SOAP有寫如何納入六大支柱作為非藥物建議的一部分。</li>
-                        </ul>
-                    </div>
+                    <table class="plan-do-check-table">
+                        <thead>
+                            <tr>
+                                <th>Plan</th>
+                                <th>Do</th>
+                                <th>Check</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <ul>
+                                        <li>邀請蔡孟修主任演講：生活型態醫學介紹。</li>
+                                        <li>7/29於藥劑部演講，同時錄製影音課程，請蔡主任出5題選擇題 (連同影片置於電子學習歷程)。</li>
+                                        <li>PGY於到職三個月內完成(於「試用期評估單」增列項目)。</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>對門診或準備出院病人的衛教，加入對應生活型態醫學支柱。</li>
+                                        <li>指導PGY「藥物諮詢」的藥師，於實作中引導學員思考如何建議病人改善飲食、運動或睡眠等生活型態？如：長期依賴BZD、服用降壓藥但飲食重鹹、COPD合併吸菸等案例，訓練PGY運用諮詢技巧了解病人生活習慣，並進行基本衛教或協助轉介。</li>
+                                        <li>於藥劑部全人照護教育紀錄表 (藥品諮詢)增列六大支柱可複選。</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>修訂「藥劑部跨領域團隊合作照護訓練辦法」。</li>
+                                        <li>請當次負責指導的臨床組教師，於Brief時指導學生就本次選定案例，討論如何將六大支柱作為衛教病人的內容。</li>
+                                        <li>請當次負責指導的臨床組教師，於Debrief時確認學生回饋時，有寫如何將六大支柱作為衛教病人的內容。</li>
+                                        <li>修訂「臨床照護與團隊合作實務課程」。</li>
+                                        <li>於訓練期間，融入生活型態失衡導致疾病惡化的情境（如糖尿病合併夜班工作失眠、高齡病人長期臥床無活動），讓學員練習如何在建議中提出非藥物介入計畫（如：改善作息、鼓勵簡單活動）並記錄於SOAP中。</li>
+                                        <li>指導教師檢視學員於SOAP有寫如何納入六大支柱作為非藥物建議的一部分。</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
