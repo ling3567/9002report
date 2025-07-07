@@ -412,35 +412,25 @@
         }
         .summary-boxes {
             display: flex;
-            justify-content: space-between;
-            gap: 15px;
+            justify-content: space-around;
+            gap: 25px;
             margin-bottom: 40px;
             flex-wrap: nowrap; /* keep all boxes on the same row */
         }
         .summary-box {
+            background-color: var(--accent-blue-light); /* Light blue background */
             border-radius: 12px;
-            padding: 15px 20px;
-            flex: 1 1 30%;
+            padding: 20px 25px;
+            flex: 1 0 30%;
             max-width: 30%;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             text-align: center;
             transition: transform 0.2s ease-in-out;
         }
-        .summary-box.established {
-            background-color: #e8f5e9; /* light green */
-            border: 2px solid var(--success-green);
-        }
-        .summary-box.planning {
-            background-color: #fff9e6; /* light yellow */
-            border: 2px solid var(--warning-yellow);
-        }
-        .summary-box.no-plan {
-            background-color: #ffe8e8; /* light red */
-            border: 2px solid var(--danger-red);
-        }
         .summary-box:hover {
             transform: translateY(-5px);
         }
+main
         .summary-box h3 {
             color: var(--primary-dark-text);
             margin-top: 0;
@@ -1400,23 +1390,25 @@
                 <h2>CBME執行現況</h2>
 
                 <h3>CBME執行現況 - 醫師 (I)</h3>
+
                 <div class="summary-boxes">
-                    <div class="summary-box established">
+                    <div class="summary-box">
                         <h3>已建立</h3>
                         <div class="count">13</div>
                         <div class="details">內科部、外科部、婦產部、急診醫學部…</div>
                     </div>
-                    <div class="summary-box planning">
+                    <div class="summary-box">
                         <h3>尚未建立 (規劃中)</h3>
                         <div class="count">10</div>
                         <div class="details">兒科部、泌尿外科、復健部、整形外科、精神醫學部、中醫部、解剖病理科、骨科部、眼科部、皮膚科</div>
                     </div>
-                    <div class="summary-box no-plan">
+                    <div class="summary-box">
                         <h3>無規劃</h3>
                         <div class="count">1</div>
                         <div class="details">職業醫學科 (待學會公告配合)</div>
                     </div>
                 </div>
+ main
 
                 <h3 class="section-title">CBME執行現況 - 醫師 (II)</h3>
                 <div class="cbme-table-container">
