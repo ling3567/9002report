@@ -733,6 +733,24 @@
             color: var(--accent-blue-main);
         }
 
+        /* Distinct color schemes for pharmacy intern and PGY pharmacist sections */
+        .pharmacy-intern-section h3 {
+            color: var(--success-green);
+            border-bottom-color: var(--success-green);
+        }
+        .pharmacy-intern-section .plan-do-check-item {
+            background-color: #E8F5E9; /* light green */
+            border-color: var(--success-green);
+        }
+        .pgy-pharmacist-section h3 {
+            color: #E65100; /* dark orange */
+            border-bottom-color: #E65100;
+        }
+        .pgy-pharmacist-section .plan-do-check-item {
+            background-color: #FFF3E0; /* light orange */
+            border-color: #FF9800;
+        }
+
         .osce-revision-section {
             margin-top: 50px;
             text-align: left;
@@ -1201,7 +1219,7 @@
 
         <div id="pharmacy-lifestyle-medicine" class="page-content">
             <h2>藥事訓練計畫融入生活型態醫學</h2>
-            <div class="action-plan-section">
+            <div class="action-plan-section pharmacy-intern-section">
                 <h3>藥學實習生</h3>
                 <div class="plan-do-check-container">
                     <div class="plan-do-check-item">
@@ -1234,7 +1252,7 @@
                 </div>
             </div>
 
-            <div class="action-plan-section">
+            <div class="action-plan-section pgy-pharmacist-section">
                 <h3>PGY藥師</h3>
                 <div class="plan-do-check-container">
                     <div class="plan-do-check-item">
