@@ -1169,7 +1169,7 @@
             margin-bottom: 30px;
         }
         .award-card {
-            background-color: #f2f6f5;
+            background-color: #ffffff;
             border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             padding: 20px;
@@ -1186,6 +1186,7 @@
             font-style: italic;
             font-weight: 600;
             margin-bottom: 8px;
+            color: #003262;
         }
         .award-card ul {
             list-style: none;
@@ -1195,6 +1196,9 @@
         }
         .award-card ul li {
             margin-bottom: 6px;
+        }
+        .author {
+            color: #355c53;
         }
         .honorable-section {
             margin-top: 20px;
@@ -1206,18 +1210,18 @@
             font-weight: 600;
         }
         .honorable-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
         }
         .honorable-card {
-            background-color: #f2f6f5;
+            background-color: #ffffff;
             border-radius: 10px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.08);
             padding: 12px 15px;
-            flex: 1 1 180px;
-            max-width: 220px;
+            text-align: center;
             font-size: 0.95em;
         }
         .honorable-index {
@@ -1230,9 +1234,7 @@
         #narrative-award .award-tab.active { background-color: var(--accent-blue-main); color: #fff; }
         #narrative-award .award-content { display: none; }
         #narrative-award .award-content.active { display: block; }
-        .work-green { color: #00695c; }
-        .work-blue { color: #2d5f9a; }
-        .work-red { color: #a03837; }
+        .work-green, .work-blue, .work-red { color: #003262; }
         /* Footer style */
         .page-footer {
             position: absolute;
@@ -1310,7 +1312,7 @@
             <h2>敘事醫學競賽獲獎—醫療的瞬間・永恆的感動</h2>
             <div class="award-tabs">
                 <button class="award-tab active" data-target="photo-award">攝影競賽獲獎</button>
-                <button class="award-tab" data-target="video-award">敘事醫學競賽獲獎</button>
+                <button class="award-tab" data-target="video-award">短影音競賽獲獎</button>
             </div>
 
             <div id="photo-award" class="award-content active">
@@ -1335,12 +1337,12 @@
                 <div class="honorable-section">
                     <h4>佳作</h4>
                     <div class="honorable-list">
-                        <div class="honorable-card"><span class="honorable-index">1.</span> <span class="work work-green">《忙碌中停下腳步，記得溫度》</span> - 方郁涵／9A</div>
-                        <div class="honorable-card"><span class="honorable-index">2.</span> <span class="work work-blue">《烈日下的那一口安心》</span> - 李芯儀／健康促進組</div>
-                        <div class="honorable-card"><span class="honorable-index">3.</span> <span class="work work-red">《靜默中的專注》</span> - 林志遠／藥劑部</div>
-                        <div class="honorable-card"><span class="honorable-index">4.</span> <span class="work work-green">《靜靜地～陪你走一段》</span> - 黃詠琳／急診醫學部</div>
-                        <div class="honorable-card"><span class="honorable-index">5.</span> <span class="work work-blue">《在家也能被療癒。一雙手，撫平病痛，也撫慰人心》</span> - 楊惠君／公共事務室</div>
-                        <div class="honorable-card"><span class="honorable-index">6.</span> <span class="work work-red">《前輩與新人》</span> - 何承蔚／一般科</div>
+                        <div class="honorable-card"><span class="honorable-index">1.</span> <span class="work work-green">《忙碌中停下腳步，記得溫度》</span><div class="author">方郁涵／9A</div></div>
+                        <div class="honorable-card"><span class="honorable-index">2.</span> <span class="work work-blue">《烈日下的那一口安心》</span><div class="author">李芯儀／健康促進組</div></div>
+                        <div class="honorable-card"><span class="honorable-index">3.</span> <span class="work work-red">《靜默中的專注》</span><div class="author">林志遠／藥劑部</div></div>
+                        <div class="honorable-card"><span class="honorable-index">4.</span> <span class="work work-green">《靜靜地～陪你走一段》</span><div class="author">黃詠琳／急診醫學部</div></div>
+                        <div class="honorable-card"><span class="honorable-index">5.</span> <span class="work work-blue">《在家也能被療癒。一雙手，撫平病痛，也撫慰人心》</span><div class="author">楊惠君／公共事務室</div></div>
+                        <div class="honorable-card"><span class="honorable-index">6.</span> <span class="work work-red">《前輩與新人》</span><div class="author">何承蔚／一般科</div></div>
                     </div>
                 </div>
             </div>
@@ -1356,27 +1358,27 @@
                     <div class="award-card">
                         <div class="medal">🥈 第二名</div>
                         <ul>
-                            <li><span class="work work-blue">《護理的瞬間，永恆的感動》</span> - 廖麗月／公共事務室</li>
-                            <li><span class="work work-red">《移動的溫柔：從影像開始的守護》</span> - 黃美蘭／放射診斷科</li>
+                            <li><span class="work work-blue">《護理的瞬間，永恆的感動》</span><div class="author">廖麗月／公共事務室</div></li>
+                            <li><span class="work work-red">《移動的溫柔：從影像開始的守護》</span><div class="author">黃美蘭／放射診斷科</div></li>
                         </ul>
                     </div>
                     <div class="award-card">
                         <div class="medal">🥉 第三名</div>
                         <ul>
-                            <li><span class="work work-green">《重生的祝福》</span> - 顏旻萱／8B</li>
-                            <li><span class="work work-blue">《一樣的中秋節》</span> - 楊書瑜／復健部</li>
-                            <li><span class="work work-red">《被記住的溫柔》</span> - 黃淑芬／藥劑部</li>
+                            <li><span class="work work-green">《重生的祝福》</span><div class="author">顏旻萱／8B</div></li>
+                            <li><span class="work work-blue">《一樣的中秋節》</span><div class="author">楊書瑜／復健部</div></li>
+                            <li><span class="work work-red">《被記住的溫柔》</span><div class="author">黃淑芬／藥劑部</div></li>
                         </ul>
                     </div>
                 </div>
                 <div class="honorable-section">
                     <h4>佳作</h4>
                     <div class="honorable-list">
-                        <div class="honorable-card"><span class="honorable-index">1.</span> <span class="work work-green">《友善醫療：從同理開始》</span> - 杜漢祥／品質管理中心</div>
-                        <div class="honorable-card"><span class="honorable-index">2.</span> <span class="work work-blue">《兩塊錢的信封袋，跨越時空的念想》</span> - 陳乃蓁、蘇婉淳、蔡雅雯／院長室 研究發展組</div>
-                        <div class="honorable-card"><span class="honorable-index">3.</span> <span class="work work-red">《從沉默裡，「刮」出微光》</span> - 陳璟綺／復健部</div>
-                        <div class="honorable-card"><span class="honorable-index">4.</span> <span class="work work-green">《有時候，一句話，就能讓人安心》</span> - 黃淑芬／藥劑部</div>
-                        <div class="honorable-card"><span class="honorable-index">5.</span> <span class="work work-blue">《生命微光～早產兒生命之旅》</span> - 林品吟、李晴玉、陶菁／護理部</div>
+                        <div class="honorable-card"><span class="honorable-index">1.</span> <span class="work work-green">《友善醫療：從同理開始》</span><div class="author">杜漢祥／品質管理中心</div></div>
+                        <div class="honorable-card"><span class="honorable-index">2.</span> <span class="work work-blue">《兩塊錢的信封袋，跨越時空的念想》</span><div class="author">陳乃蓁、蘇婉淳、蔡雅雯／院長室 研究發展組</div></div>
+                        <div class="honorable-card"><span class="honorable-index">3.</span> <span class="work work-red">《從沉默裡，「刮」出微光》</span><div class="author">陳璟綺／復健部</div></div>
+                        <div class="honorable-card"><span class="honorable-index">4.</span> <span class="work work-green">《有時候，一句話，就能讓人安心》</span><div class="author">黃淑芬／藥劑部</div></div>
+                        <div class="honorable-card"><span class="honorable-index">5.</span> <span class="work work-blue">《生命微光～早產兒生命之旅》</span><div class="author">林品吟、李晴玉、陶菁／護理部</div></div>
                     </div>
                 </div>
             </div>
