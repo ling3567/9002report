@@ -430,6 +430,7 @@
         .summary-box:hover {
             transform: translateY(-5px);
         }
+main
         .summary-box h3 {
             color: var(--primary-dark-text);
             margin-top: 0;
@@ -441,10 +442,12 @@
         .summary-box .count {
             font-size: 3em;
             font-weight: bold;
-            color: var(--accent-blue-main); /* Blue count */
             display: block;
             margin-bottom: 10px;
         }
+        .summary-box.established .count { color: var(--success-green); }
+        .summary-box.planning .count { color: var(--warning-yellow); }
+        .summary-box.no-plan .count { color: var(--danger-red); }
         .summary-box .details {
             font-size: 1em;
             color: var(--primary-medium-text);
@@ -1387,6 +1390,7 @@
                 <h2>CBME執行現況</h2>
 
                 <h3>CBME執行現況 - 醫師 (I)</h3>
+
                 <div class="summary-boxes">
                     <div class="summary-box">
                         <h3>已建立</h3>
@@ -1404,6 +1408,7 @@
                         <div class="details">職業醫學科 (待學會公告配合)</div>
                     </div>
                 </div>
+ main
 
                 <h3 class="section-title">CBME執行現況 - 醫師 (II)</h3>
                 <div class="cbme-table-container">
