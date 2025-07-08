@@ -41,8 +41,9 @@
             background-color: var(--bg-light-gray); /* Overall light background */
         }
         #sidebar {
-            width: 250px; /* Consistent sidebar width */
-            flex: 0 0 250px; /* Prevent flexbox from shrinking */
+            width: 22vw; /* Use viewport width for responsive sizing */
+            min-width: 200px; /* Prevent sidebar from becoming too narrow */
+            flex: 0 0 22vw; /* Keep sidebar width consistent */
             background-color: var(--accent-blue-light); /* 淡雅的淺藍色 */
             padding: 20px;
             box-shadow: 2px 0 10px rgba(0,0,0,0.1); /* Soft shadow */
@@ -129,8 +130,8 @@
         }
         .page-content {
             display: none;
-            width: 100%; /* Consistent width */
-            max-width: 1600px; /* Consistent max width */
+            width: 100%;
+            max-width: 100%; /* Allow content to scale with viewport */
             height: 100%;
             flex-grow: 1;
             background-color: var(--bg-white); /* Content box background */
@@ -319,7 +320,7 @@
         /* Teacher Evaluation Report */
         .evaluation-report {
             width: 100%;
-            max-width: 1200px;
+            max-width: 100%;
             margin: 0 auto;
             text-align: center;
         }
@@ -529,7 +530,7 @@
 
         .cbme-table-container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 100%;
             margin: 0 auto 30px auto;
             padding: 0;
             box-sizing: border-box;
