@@ -124,13 +124,15 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
+            height: 100vh; /* Ensure full-screen height */
             background-color: var(--bg-white); /* Main content area background */
         }
         .page-content {
             display: none;
             width: 100%; /* Consistent width */
             max-width: 1600px; /* Consistent max width */
-            aspect-ratio: 16 / 9;
+            height: 100%;
+            flex-grow: 1;
             background-color: var(--bg-white); /* Content box background */
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Softer shadow */
