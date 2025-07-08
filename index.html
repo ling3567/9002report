@@ -1343,6 +1343,22 @@
             box-shadow: 0 2px 6px rgba(0,0,0,0.2);
             z-index: 1000;
         }
+        /* Thesis awards page styling */
+        #thesis-awards {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        #thesis-awards .award-text {
+            white-space: nowrap;
+            font-size: 5vw;
+        }
+        #thesis-awards .award-text .number-highlight {
+            font-weight: bold;
+            color: #1E88E5;
+            font-size: 1.2em;
+        }
     </style>
 </head>
 <body>
@@ -2034,7 +2050,7 @@
         </div>
 
         <div id="thesis-awards" class="page-content">
-            <p>6月份論文發表相關獎勵申請：？件</p>
+            <div class="award-text">6月份論文發表相關獎勵申請：<span class="number-highlight">174</span>件</div>
         </div>
 
         <div id="ad-hoc-motion" class="page-content">
