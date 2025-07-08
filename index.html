@@ -1348,13 +1348,14 @@
             justify-content: center;
             align-items: center;
             text-align: center;
+            overflow-x: hidden; /* prevent horizontal scrollbar */
         }
         #thesis-awards.active {
             display: flex;
         }
         #thesis-awards .award-text {
-            white-space: nowrap;
-            font-size: 5vw;
+            white-space: nowrap; /* keep text on a single line */
+            font-size: 3vw;      /* adjusted text size */
         }
         #thesis-awards .award-text .number-highlight {
             font-weight: bold;
