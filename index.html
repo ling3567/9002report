@@ -1324,8 +1324,6 @@
             z-index: 1000;
         }
     </style>
-    <!-- 引入 Tone.js 函式庫 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
 </head>
 <body>
     <div id="sidebar">
@@ -1460,7 +1458,8 @@
                     </div>
                 </div>
             </div>
-            <button id="narrative-music-btn" class="music-button" title="播放頒獎音樂">🎵</button>
+            <button id="narrative-music-btn" class="music-button" title="播放頒獎音樂">♫</button>
+            <audio id="award-audio" src="/audio/award-fanfare.mp3" style="display:none"></audio>
         </div>
         <div id="chairman-report" class="page-content">
             <h2 style="font-size: 3em; color: var(--primary-dark-text);">主席報告</h2>
@@ -2010,68 +2009,25 @@
 
     <script>
         // 將 let 改為 var 以避免重複宣告錯誤
-        var awardsSynth = null;
-        var awardsPart = null;
+        var awardsAudio = null;
 
-        // 初始化 Tone.js 音頻上下文和合成器
-        async function initializeAwardsAudio() {
-            if (!awardsSynth) {
-                // Tone.start() 必須在用戶互動後調用，以避免瀏覽器自動播放策略的限制
-                // 在這裡先不自動啟動，等到點擊頒獎頁籤時再啟動
-                awardsSynth = new Tone.PolySynth(Tone.Synth, {
-                    oscillator: {
-                        type: "sine" // 使用正弦波形
-                    },
-                    envelope: {
-                        attack: 0.005,
-                        decay: 0.1,
-                        sustain: 0.3,
-                        release: 1
-                    }
-                }).toDestination(); // 連接到揚聲器
-
-                // 定義一個簡單的號角聲旋律作為序列
-                const fanfareNotes = [
-                    ["C4", "0"],     // C4音，在0秒開始
-                    ["E4", "0.25"],  // E4音，在0.25秒開始
-                    ["G4", "0.5"],   // G4音，在0.5秒開始
-                    ["C5", "0.75"]   // C5音，在0.75秒開始
-                ];
-
-                // 創建一個 Tone.Part 來安排音符播放
-                awardsPart = new Tone.Part((time, note) => {
-                    awardsSynth.triggerAttackRelease(note, "8n", time); // 播放音符，持續八分音符時長
-                }, fanfareNotes).start(0); // 從0秒開始播放
-
-                Tone.Transport.loop = false; // 不循環播放
-                Tone.Transport.bpm.value = 120; // 設定每分鐘120拍
+        function initializeAwardsAudio() {
+            if (!awardsAudio) {
+                awardsAudio = document.getElementById('award-audio');
             }
         }
 
-        // 播放號角聲
-        async function playAwardsFanfare() {
-            // 確保音頻上下文已啟動 (在首次用戶互動後)
-            await Tone.start(); 
-            if (awardsSynth && awardsPart) {
-                Tone.Transport.stop(); // 停止任何先前的播放
-                Tone.Transport.cancel(); // 清除所有已安排的事件
-                awardsPart.start(0); // 從頭開始播放樂段
-                Tone.Transport.start(); // 啟動 Tone.js 的傳輸器
-
-                // 在樂段結束後停止傳輸器和釋放音符，避免持續發聲
-                Tone.Transport.scheduleOnce(() => {
-                    Tone.Transport.stop();
-                    awardsSynth.releaseAll();
-                }, awardsPart.duration); // 在樂段持續時間後停止
+        function playAwardsFanfare() {
+            if (awardsAudio) {
+                awardsAudio.currentTime = 0;
+                awardsAudio.play();
             }
         }
 
-        // 停止號角聲
         function stopAwardsFanfare() {
-            if (awardsSynth) {
-                Tone.Transport.stop(); // 停止傳輸器
-                Tone.Transport.cancel(); // 清除所有已安排的事件
-                awardsSynth.releaseAll(); // 釋放所有正在發聲的音符
+            if (awardsAudio) {
+                awardsAudio.pause();
+                awardsAudio.currentTime = 0;
             }
         }
 
