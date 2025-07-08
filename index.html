@@ -1325,8 +1325,20 @@
         .work-blue { color: #1565C0; }
         .work-red  { color: #C62828; }
 
+
         .author { color: #000000; }
+        .ai-collab-badge {
+            background-color: var(--accent-blue-main);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+            display: inline-block;
+            font-weight: bold;
+        }
+ main
         /* Footer style */
+main
         .page-footer {
             position: absolute;
             bottom: 20px;
@@ -1546,12 +1558,16 @@
                 <div class="award-card-container">
                     <div class="award-card">
                         <div class="medal">🥇 第一名</div>
+
                         <div class="work work-green">《那一刻，我被理解了》</div>
 
-
+                        
                         <div class="author">吳曉琪／教學中心</div>
+                        <div class="ai-collab-badge">🎖AI協作特別獎</div>
                     </div>
+main
                     <div class="award-card">
+main
                         <div class="medal">🥈 第二名</div>
                         <ul class="second-place-list">
                             <li><span class="work work-blue">《護理的瞬間–永恆的感動》</span><div class="author">廖麗月／公共事務室</div></li>
@@ -2131,6 +2147,7 @@
         // 將 let 改為 var 以避免重複宣告錯誤
         var awardsAudio = null;
         var isAudioPlaying = false;
+        var suppressAwardAudio = false; // flag to control autoplay when switching pages
 
         function initializeAwardsAudio() {
             if (!awardsAudio) {
@@ -2211,7 +2228,10 @@
 
                 // 音頻播放邏輯
                 if (id === 'awards') {
-                    playAwardsFanfare();
+                    if (!suppressAwardAudio) {
+                        playAwardsFanfare();
+                    }
+                    suppressAwardAudio = false; // reset after handling
                 } else {
                     stopAwardsFanfare();
                 }
@@ -2221,6 +2241,12 @@
                 link.addEventListener('click', function(e) {
                     e.preventDefault(); // 阻止連結的預設行為 (跳轉)
                     const targetId = this.getAttribute('href').substring(1); // 取得連結的hash值 (不含#)
+
+                    // 如果點擊的是「壹、頒獎」頁籤，避免自動播放音樂
+                    if (targetId === 'awards') {
+                        suppressAwardAudio = true;
+                    }
+
                     history.pushState(null, '', `#${targetId}`); // 更新URL hash
                     showPage(targetId);
 
