@@ -2144,7 +2144,12 @@
 
             if (musicBtn) {
                 musicBtn.addEventListener('click', () => {
-                    playAwardsFanfare();
+                    // Toggle playback: play if paused, otherwise stop
+                    if (awardsAudio && !awardsAudio.paused) {
+                        stopAwardsFanfare();
+                    } else {
+                        playAwardsFanfare();
+                    }
                 });
             }
 
