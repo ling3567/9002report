@@ -2138,6 +2138,7 @@ main
         // 將 let 改為 var 以避免重複宣告錯誤
         var awardsAudio = null;
         var isAudioPlaying = false;
+        var suppressAwardAudio = false; // flag to control autoplay when switching pages
 
         function initializeAwardsAudio() {
             if (!awardsAudio) {
@@ -2218,7 +2219,10 @@ main
 
                 // 音頻播放邏輯
                 if (id === 'awards') {
-                    playAwardsFanfare();
+                    if (!suppressAwardAudio) {
+                        playAwardsFanfare();
+                    }
+                    suppressAwardAudio = false; // reset after handling
                 } else {
                     stopAwardsFanfare();
                 }
@@ -2228,6 +2232,12 @@ main
                 link.addEventListener('click', function(e) {
                     e.preventDefault(); // 阻止連結的預設行為 (跳轉)
                     const targetId = this.getAttribute('href').substring(1); // 取得連結的hash值 (不含#)
+
+                    // 如果點擊的是「壹、頒獎」頁籤，避免自動播放音樂
+                    if (targetId === 'awards') {
+                        suppressAwardAudio = true;
+                    }
+
                     history.pushState(null, '', `#${targetId}`); // 更新URL hash
                     showPage(targetId);
 
