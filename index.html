@@ -1317,7 +1317,8 @@
             color: var(--primary-medium-text);
         }
         /* Music button for narrative award page */
-        #narrative-award .music-button {
+        #narrative-award .music-button,
+        #monthly-duty-award .music-button {
             position: fixed;
             bottom: 20px;
             right: 20px;
@@ -1391,29 +1392,27 @@
         </div>
 
         <div id="monthly-duty-award" class="page-content">
-            <h2>當月值班教學優秀獎</h2>
+            <h2>114年3–5月當月值班教學優秀獎</h2>
             <p style="text-align: center; font-size: 1.2em; color: var(--primary-dark-text);">UGY學員回饋選出</p>
-            <h3 class="subtitle">114年3–5月當月值班教學優秀獎</h3>
             <div class="award-card-container">
                 <div class="award-card">
                     <div class="award-month">3月</div>
                     <div>一般科（PGY1）：孫懷奇醫師</div>
                     <div>一般科（PGY2）：何信賢醫師</div>
-                    <div class="award-note">獎勵金每人2,000元</div>
                 </div>
                 <div class="award-card">
                     <div class="award-month">4月</div>
                     <div>家庭醫學部（LR1）：吳哲嘉醫師</div>
                     <div>一般科（PGY2）：吳展誌醫師</div>
-                    <div class="award-note">獎勵金每人2,000元</div>
                 </div>
                 <div class="award-card">
                     <div class="award-month">5月</div>
                     <div>一般科（PGY1）：林柏成醫師</div>
                     <div>一般科（PGY2）：魏國唐醫師</div>
-                    <div class="award-note">獎勵金每人2,000元</div>
+                    <div class="award-note" style="text-align: right;">獎勵金每人2,000元</div>
                 </div>
             </div>
+            <button id="monthly-music-btn" class="music-button" title="播放頒獎音樂">♫</button>
         </div>
 
 
@@ -2043,6 +2042,7 @@
     <script>
         // 將 let 改為 var 以避免重複宣告錯誤
         var awardsAudio = null;
+        var isAudioPlaying = false;
 
         function initializeAwardsAudio() {
             if (!awardsAudio) {
@@ -2054,6 +2054,7 @@
             if (awardsAudio) {
                 awardsAudio.currentTime = 0;
                 awardsAudio.play();
+                isAudioPlaying = true;
             }
         }
 
@@ -2061,6 +2062,7 @@
             if (awardsAudio) {
                 awardsAudio.pause();
                 awardsAudio.currentTime = 0;
+                isAudioPlaying = false;
             }
         }
 
@@ -2068,7 +2070,7 @@
             const sidebarLinks = document.querySelectorAll('.sidebar-link');
             const pageContents = document.querySelectorAll('.page-content');
             const submenuItems = document.querySelectorAll('#sidebar li.has-submenu');
-            const musicBtn = document.getElementById('narrative-music-btn');
+            const musicButtons = document.querySelectorAll('.music-button');
 
             // 預設收合所有子選單
             submenuItems.forEach(li => li.classList.remove('open'));
@@ -2142,11 +2144,15 @@
                 });
             });
 
-            if (musicBtn) {
-                musicBtn.addEventListener('click', () => {
-                    playAwardsFanfare();
+            musicButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (isAudioPlaying) {
+                        stopAwardsFanfare();
+                    } else {
+                        playAwardsFanfare();
+                    }
                 });
-            }
+            });
 
             // Tab switching within narrative award page
             const awardTabs = document.querySelectorAll('#narrative-award .award-tab');
