@@ -41,14 +41,40 @@
             background-color: var(--bg-light-gray); /* Overall light background */
         }
         #sidebar {
-            width: 22vw; /* Use viewport width for responsive sizing */
-            min-width: 200px; /* Prevent sidebar from becoming too narrow */
-            flex: 0 0 22vw; /* Keep sidebar width consistent */
+            width: 240px;
+            flex: 0 0 240px;
             background-color: var(--accent-blue-light); /* 淡雅的淺藍色 */
             padding: 20px;
             box-shadow: 2px 0 10px rgba(0,0,0,0.1); /* Soft shadow */
             overflow-y: auto;
             color: var(--primary-dark-text); /* Dark text for sidebar */
+            transition: width 0.3s ease;
+            position: relative;
+        }
+        #sidebar.collapsed {
+            width: 60px;
+            flex: 0 0 60px;
+        }
+        #sidebar.collapsed ul li ul {
+            display: none;
+        }
+        #sidebar.collapsed a {
+            font-size: 0;
+            text-align: center;
+        }
+        #sidebar.collapsed a::before {
+            content: attr(data-short);
+            font-size: 1em;
+        }
+        .sidebar-toggle {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            z-index: 1100;
         }
         .sidebar-header {
             font-size: 1.1em;
@@ -1395,18 +1421,26 @@
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            body {
-                flex-direction: column;
-                height: auto;
-                overflow: auto;
-            }
             #sidebar {
-                width: 100%;
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                transform: translateX(-100%);
+                width: 240px;
                 flex: none;
-                order: 1;
-                padding: 15px;
+                padding: 20px;
+                z-index: 1000;
+                transition: transform 0.3s ease;
+            }
+            #sidebar.open {
+                transform: translateX(0);
+            }
+            #sidebar.collapsed {
+                width: 240px;
             }
             #content-area {
+                flex: 1;
                 height: auto;
                 padding: 20px;
             }
@@ -1442,6 +1476,7 @@
     </style>
 </head>
 <body>
+    <button id="sidebar-toggle" class="sidebar-toggle">≡</button>
     <div id="sidebar">
         <div class="sidebar-header">醫學教育委員會<br>114年07月會議報告</div>
         <ul>
@@ -2176,13 +2211,41 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.getElementById('sidebar');
+            const toggleBtn = document.getElementById('sidebar-toggle');
             const sidebarLinks = document.querySelectorAll('.sidebar-link');
             const pageContents = document.querySelectorAll('.page-content');
             const submenuItems = document.querySelectorAll('#sidebar li.has-submenu');
             const musicButtons = document.querySelectorAll('.music-button');
 
+            sidebarLinks.forEach(link => {
+                link.dataset.short = link.textContent.trim().charAt(0);
+            });
+
             // 預設收合所有子選單
             submenuItems.forEach(li => li.classList.remove('open'));
+
+            function collapseSidebar() {
+                sidebar.classList.add('collapsed');
+                sidebarLinks.forEach(link => link.setAttribute('title', link.textContent.trim()));
+            }
+
+            function expandSidebar() {
+                sidebar.classList.remove('collapsed');
+                sidebarLinks.forEach(link => link.removeAttribute('title'));
+            }
+
+            toggleBtn.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.toggle('open');
+                } else {
+                    if (sidebar.classList.contains('collapsed')) {
+                        expandSidebar();
+                    } else {
+                        collapseSidebar();
+                    }
+                }
+            });
 
             // 在頁面加載時初始化音頻相關組件
             initializeAwardsAudio();
